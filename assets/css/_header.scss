@@ -1,0 +1,21 @@
+/**
+ * Header
+ */
+.site-title {
+	/* Match <p> tag to <h1> tag on front page */
+	font-size: 2em;
+	font-weight: bold;
+
+	& a {
+		color: inherit;
+		text-decoration: inherit;
+	}
+}
+
+.site-description {
+	margin: 0;
+}
+
+.site-header-image {
+	margin: 1em 0;
+}
