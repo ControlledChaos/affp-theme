@@ -3,7 +3,7 @@
  * The template for displaying all single posts
  *
  * @package    WordPress/ClassicPress
- * @subpackage BS_Theme
+ * @subpackage AFFP_Theme
  * @since      1.0.0
  */
 

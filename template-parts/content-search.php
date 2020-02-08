@@ -3,7 +3,7 @@
  * Template part for displaying results in search pages
  *
  * @package    WordPress/ClassicPress
- * @subpackage BS_Theme
+ * @subpackage AFFP_Theme
  * @since      1.0.0
  */
 
@@ -16,20 +16,20 @@
 		<?php if ( 'post' === get_post_type() ) : ?>
 		<div class="entry-meta">
 			<?php
-			BS_Theme\Tags\posted_on();
-			BS_Theme\Tags\posted_by();
+			AFFP_Theme\Tags\posted_on();
+			AFFP_Theme\Tags\posted_by();
 			?>
 		</div>
 		<?php endif; ?>
 	</header>
 
-	<?php BS_Theme\Tags\post_thumbnail(); ?>
+	<?php AFFP_Theme\Tags\post_thumbnail(); ?>
 
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>
 	</div>
 
 	<footer class="entry-footer">
-		<?php BS_Theme\Tags\entry_footer(); ?>
+		<?php AFFP_Theme\Tags\entry_footer(); ?>
 	</footer><
 </article>

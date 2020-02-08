@@ -3,7 +3,7 @@
  * The sidebar containing the main widget area
  *
  * @package    WordPress/ClassicPress
- * @subpackage BS_Theme
+ * @subpackage AFFP_Theme
  * @since      1.0.0
  */
 
@@ -11,7 +11,7 @@
 
 <aside id="secondary" class="widget-area">
 
-	<p><?php BS_Theme\Includes\theme_mode(); ?></p>
+	<p><?php AFFP_Theme\Includes\theme_mode(); ?></p>
 
 	<?php
 		if ( is_active_sidebar( 'sidebar' ) ) :
@@ -22,7 +22,7 @@
 
     	<?php get_search_form(); ?>
 
-    	<h3><?php _e( 'Archives', 'bs-theme' ); ?></h3>
+    	<h3><?php _e( 'Archives', 'affp-theme' ); ?></h3>
     	<ul>
     		<?php wp_get_archives( 'type=monthly' ); ?>
 		</ul>
@@ -36,22 +36,22 @@
 			]
 		); ?>
 
-    	<h3><?php _e( 'Meta', 'bs-theme' ); ?></h3>
+    	<h3><?php _e( 'Meta', 'affp-theme' ); ?></h3>
     	<ul>
 			<?php wp_register(); ?>
 			<?php if ( is_user_logged_in() ) : ?>
 			<li>
-				<a href="<?php echo get_edit_user_link(); ?>"><?php _e( 'Your Profile', 'bs-theme' ); ?></a>
+				<a href="<?php echo get_edit_user_link(); ?>"><?php _e( 'Your Profile', 'affp-theme' ); ?></a>
 			</li>
 			<?php endif; ?>
     		<li><?php wp_loginout(); ?></li>
 			<?php wp_meta(); ?>
     	</ul>
 
-    	<h3><?php _e( 'Subscribe', 'bs-theme' ); ?></h3>
+    	<h3><?php _e( 'Subscribe', 'affp-theme' ); ?></h3>
     	<ul>
-    		<li><a href="<?php bloginfo( 'rss2_url' ); ?>"><?php _e( 'Entries RSS', 'bs-theme' ); ?></a></li>
-    		<li><a href="<?php bloginfo( 'comments_rss2_url' ); ?>"><?php _e( 'Comments RSS', 'bs-theme' ); ?></a></li>
+    		<li><a href="<?php bloginfo( 'rss2_url' ); ?>"><?php _e( 'Entries RSS', 'affp-theme' ); ?></a></li>
+    		<li><a href="<?php bloginfo( 'comments_rss2_url' ); ?>"><?php _e( 'Comments RSS', 'affp-theme' ); ?></a></li>
     	</ul>
 
 	<?php endif; ?>

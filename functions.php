@@ -1,65 +1,20 @@
 <?php
 /**
- * BS Theme functions
+ * Audrey Fisher FullPage functions
  *
- * A basic starter theme for WordPress and ClassicPress.
+ * A WordPress theme that integrates FullPage.JS into the front page.
  *
  * @package    WordPress/ClassicPress
- * @subpackage BS_Theme
+ * @subpackage AFFP_Theme
  * @author     Controlled Chaos Design <greg@ccdzine.com>
  * @copyright  Copyright (c) Controlled Chaos Design
- * @link       https://github.com/ControlledChaos/bs-theme
+ * @link       https://github.com/ControlledChaos/affp-theme
  * @license    http://www.gnu.org/licenses/gpl-3.0.html
  * @since      1.0.0
  */
 
-/**
- * License & Warranty
- *
- * BS Theme is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 2 of the License, or
- * any later version.
- *
- * BS Theme is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with BS Theme. If not, see {URI to Plugin License}.
- */
-
-/**
- * Renaming, rebranding, & defaults
- *
- * Following is a list of strings to find and replace in all theme files.
- *
- * 1. Plugin name
- *    Find `BS_Theme` and replace with your theme name, include
- *    underscores between words. This will change the namespace and the package
- *    name in file headers.
- *
- * 2. Text domain
- *    Find bs-theme and replace with the text domain of your theme.
- *
- * 3. Author
- *    Find `Controlled Chaos Design <greg@ccdzine.com>` and replace with your name and
- *    email address or those of your organization.
- *
- * 4. Header image
- *    Replace the default image file `default-header.jpg`.
- *    @see assets/images/
- *
- * Activation and deactivation
- *    Check the activation and deactivation classes for sample methods.
- *    Remove or modify the samples as needed.
- *    @see includes/class-activate
- *    @see includes/class-deactivate
- */
-
 // Namespace specificity for theme functions & filters.
-namespace BS_Theme\Functions;
+namespace AFFP_Theme\Functions;
 
 // Restrict direct access.
 if ( ! defined( 'ABSPATH' ) ) {
@@ -227,7 +182,7 @@ final class Functions {
 		 *
 		 * @since 1.0.0
 		 */
-		load_theme_textdomain( 'bs-theme' );
+		load_theme_textdomain( 'affp-theme' );
 
 		/**
 		 * Add theme support
@@ -263,37 +218,37 @@ final class Functions {
 		 */
 		$color_args = [
 			[
-				'name'  => __( 'Text', 'bs-theme' ),
+				'name'  => __( 'Text', 'affp-theme' ),
 				'slug'  => 'bst-text',
 				'color' => '#333333',
 			],
 			[
-				'name'  => __( 'Light Gray', 'bs-theme' ),
+				'name'  => __( 'Light Gray', 'affp-theme' ),
 				'slug'  => 'bst-light-gray',
 				'color' => '#888888',
 			],
 			[
-				'name'  => __( 'Pale Gray', 'bs-theme' ),
+				'name'  => __( 'Pale Gray', 'affp-theme' ),
 				'slug'  => 'bst-pale-gray',
 				'color' => '#cccccc',
 			],
 			[
-				'name'  => __( 'White', 'bs-theme' ),
+				'name'  => __( 'White', 'affp-theme' ),
 				'slug'  => 'bst-white',
 				'color' => '#ffffff',
 			],
 			[
-				'name'  => __( 'Error Red', 'bs-theme' ),
+				'name'  => __( 'Error Red', 'affp-theme' ),
 				'slug'  => 'bst-error',
 				'color' => '#dc3232',
 			],
 			[
-				'name'  => __( 'Warning Yellow', 'bs-theme' ),
+				'name'  => __( 'Warning Yellow', 'affp-theme' ),
 				'slug'  => 'bst-warning',
 				'color' => '#ffb900',
 			],
 			[
-				'name'  => __( 'Success Green', 'bs-theme' ),
+				'name'  => __( 'Success Green', 'affp-theme' ),
 				'slug'  => 'bst-success',
 				'color' => '#46b450',
 			]
@@ -350,38 +305,38 @@ final class Functions {
 		 */
 
 		// 1:1 square.
-		add_image_size( __( 'large-thumbnail', 'bs-theme' ), 240, 240, true );
-		add_image_size( __( 'xlarge-thumbnail', 'bs-theme' ), 320, 320, true );
+		add_image_size( __( 'large-thumbnail', 'affp-theme' ), 240, 240, true );
+		add_image_size( __( 'xlarge-thumbnail', 'affp-theme' ), 320, 320, true );
 
 		// 16:9 HD Video.
-		add_image_size( __( 'large-video', 'bs-theme' ), 1280, 720, true );
-		add_image_size( __( 'medium-video', 'bs-theme' ), 960, 540, true );
-		add_image_size( __( 'small-video', 'bs-theme' ), 640, 360, true );
+		add_image_size( __( 'large-video', 'affp-theme' ), 1280, 720, true );
+		add_image_size( __( 'medium-video', 'affp-theme' ), 960, 540, true );
+		add_image_size( __( 'small-video', 'affp-theme' ), 640, 360, true );
 
 		// 21:9 Cinemascope.
-		add_image_size( __( 'large-banner', 'bs-theme' ), 1280, 549, true );
-		add_image_size( __( 'medium-banner', 'bs-theme' ), 960, 411, true );
-		add_image_size( __( 'small-banner', 'bs-theme' ), 640, 274, true );
+		add_image_size( __( 'large-banner', 'affp-theme' ), 1280, 549, true );
+		add_image_size( __( 'medium-banner', 'affp-theme' ), 960, 411, true );
+		add_image_size( __( 'small-banner', 'affp-theme' ), 640, 274, true );
 
 		/**
 		 * Custom header
 		 */
+		$default_image = register_default_headers( [
+			'default_image' => [
+				'url'           => '%s/assets/images/default-header.jpg',
+				'thumbnail_url' => '%s/assets/images/default-header.jpg',
+				'description'   => __( 'Default Header Image', 'affp-theme' ),
+			],
+		] );
+
 		add_theme_support( 'custom-header', apply_filters( 'bst_custom_header_args', [
 			'width'              => 2048,
 			'height'             => 878,
 			'flex-height'        => true,
-			'default-image'      => 'default_image',
+			'default-image'      => $default_image,
 			'video'              => false,
 			'wp-head-callback'   => [ $this, 'header_style' ]
 		] ) );
-
-		register_default_headers( [
-			'default_image' => [
-				'url'           => '%s/assets/images/default-header.jpg',
-				'thumbnail_url' => '%s/assets/images/default-header.jpg',
-				'description'   => __( 'Default Header Image', 'bs-theme' ),
-			],
-		] );
 
 		/**
 		 * Custom logo
@@ -424,9 +379,9 @@ final class Functions {
 		 * @since  1.0.0
 		 */
 		register_nav_menus( [
-			'main'   => __( 'Main Menu', 'bs-theme' ),
-			'footer' => __( 'Footer Menu', 'bs-theme' ),
-			'social' => __( 'Social Menu', 'bs-theme' )
+			'main'   => __( 'Main Menu', 'affp-theme' ),
+			'footer' => __( 'Footer Menu', 'affp-theme' ),
+			'social' => __( 'Social Menu', 'affp-theme' )
 		] );
 
 		/**
@@ -497,9 +452,9 @@ final class Functions {
 
 		// Register sidebar widget area.
 		register_sidebar( [
-			'name'          => esc_html__( 'Sidebar', 'bs-theme' ),
+			'name'          => esc_html__( 'Sidebar', 'affp-theme' ),
 			'id'            => 'sidebar',
-			'description'   => esc_html__( 'Add widgets here.', 'bs-theme' ),
+			'description'   => esc_html__( 'Add widgets here.', 'affp-theme' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
 			'before_title'  => '<h3 class="widget-title">',
@@ -556,11 +511,11 @@ final class Functions {
 		wp_enqueue_script( 'test-navigation', get_theme_file_uri( '/assets/js/navigation.min.js' ), [], null, true );
 
 		// Skip link focus, for accessibility.
-		wp_enqueue_script( 'bs-theme-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix.min.js' ), [], null, true );
+		wp_enqueue_script( 'affp-theme-skip-link-focus-fix', get_theme_file_uri( '/assets/js/skip-link-focus-fix.min.js' ), [], null, true );
 
 		// FitVids for responsive video embeds.
-		wp_enqueue_script( 'bs-fitvids', get_theme_file_uri( '/assets/js/jquery.fitvids.min.js' ), [ 'jquery' ], null, true );
-		wp_add_inline_script( 'bs-fitvids', 'jQuery(document).ready(function($){ $( ".entry-content" ).fitVids(); });', true );
+		wp_enqueue_script( 'affp-theme-fitvids', get_theme_file_uri( '/assets/js/jquery.fitvids.min.js' ), [ 'jquery' ], null, true );
+		wp_add_inline_script( 'affp-theme-fitvids', 'jQuery(document).ready(function($){ $( ".entry-content" ).fitVids(); });', true );
 
 		// Comments scripts.
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
@@ -588,7 +543,7 @@ final class Functions {
 	public function frontend_styles() {
 
 		// Google fonts.
-		// wp_enqueue_style( 'bs-theme-google-fonts', 'add-url-here', [], '', 'screen' );
+		// wp_enqueue_style( 'affp-theme-google-fonts', 'add-url-here', [], '', 'screen' );
 
 		/**
 		 * Theme sylesheet
@@ -597,17 +552,17 @@ final class Functions {
 		 * The main stylesheet, in the root directory, only contains the theme header but
 		 * it is necessary for theme activation. DO NOT delete the main stylesheet!
 		 */
-		wp_enqueue_style( 'bs-theme', get_theme_file_uri( '/assets/css/style.min.css' ), [], '' );
+		wp_enqueue_style( 'affp-theme', get_theme_file_uri( '/assets/css/style.min.css' ), [], '' );
 
 		// Block styles.
 		if ( function_exists( 'has_blocks' ) ) {
 			if ( has_blocks() ) {
-				wp_enqueue_style( 'bs-blocks', get_theme_file_uri( '/assets/css/blocks.min.css' ), [ 'bs-theme' ], '' );
+				wp_enqueue_style( 'affp-theme-blocks', get_theme_file_uri( '/assets/css/blocks.min.css' ), [ 'affp-theme' ], '' );
 			}
 		}
 
 		// Print styles.
-		wp_enqueue_style( 'bs-print', get_theme_file_uri( '/assets/css/print.min.css' ), [], '', 'print' );
+		wp_enqueue_style( 'affp-theme-print', get_theme_file_uri( '/assets/css/print.min.css' ), [], '', 'print' );
 
 	}
 
@@ -620,7 +575,7 @@ final class Functions {
 	 */
 	public function admin_styles() {
 
-		wp_enqueue_style( 'bs-admin', get_theme_file_uri( '/assets/css/admin.min.css' ), [], '' );
+		wp_enqueue_style( 'affp-theme-admin', get_theme_file_uri( '/assets/css/admin.min.css' ), [], '' );
 
 	}
 
@@ -636,7 +591,7 @@ final class Functions {
 	public function toolbar_styles() {
 
 		if ( is_user_logged_in() && is_admin_bar_showing() ) {
-			wp_enqueue_style( 'bs-toolbar', get_theme_file_uri( '/assets/css/toolbar.min.css' ), [], '' );
+			wp_enqueue_style( 'affp-theme-toolbar', get_theme_file_uri( '/assets/css/toolbar.min.css' ), [], '' );
 		}
 
 	}
@@ -681,10 +636,10 @@ final class Functions {
 		// Add a submenu page under Themes.
 		$this->help_theme_options = add_submenu_page(
 			'themes.php',
-			__( 'Theme Options', 'bs-theme' ),
-			__( 'Theme Options', 'bs-theme' ),
+			__( 'Theme Options', 'affp-theme' ),
+			__( 'Theme Options', 'affp-theme' ),
 			'manage_options',
-			'bs-theme-options',
+			'affp-theme-options',
 			[ $this, 'theme_options_output' ]
 		);
 
@@ -724,7 +679,7 @@ final class Functions {
 		// More information tab.
 		$screen->add_help_tab( [
 			'id'       => 'help_theme_options_info',
-			'title'    => __( 'More Information', 'bs-theme' ),
+			'title'    => __( 'More Information', 'affp-theme' ),
 			'content'  => null,
 			'callback' => [ $this, 'help_theme_options_info' ]
 		] );
@@ -758,22 +713,22 @@ final class Functions {
      */
     public function help_theme_options_sidebar() {
 
-        $html  = sprintf( '<h4>%1s</h4>', __( 'Author Credits', 'bs-theme' ) );
+        $html  = sprintf( '<h4>%1s</h4>', __( 'Author Credits', 'affp-theme' ) );
         $html .= sprintf(
             '<p>%1s %2s.</p>',
-            __( 'This theme was created by', 'bs-theme' ),
+            __( 'This theme was created by', 'affp-theme' ),
             'Your Name'
         );
         $html .= sprintf(
             '<p>%1s <br /><a href="%2s" target="_blank">%3s</a> <br />%4s</p>',
-            __( 'Visit', 'bs-theme' ),
+            __( 'Visit', 'affp-theme' ),
             'https://example.com/',
             'Example Site',
-            __( 'for more details.', 'bs-theme' )
+            __( 'for more details.', 'affp-theme' )
         );
         $html .= sprintf(
             '<p>%1s</p>',
-            __( 'Change this sidebar to give yourself credit for the hard work you did customizing this theme.', 'bs-theme' )
+            __( 'Change this sidebar to give yourself credit for the hard work you did customizing this theme.', 'affp-theme' )
          );
 
 		return $html;
@@ -792,10 +747,10 @@ final class Functions {
 		// Add a submenu page under Themes.
 		add_submenu_page(
 			'themes.php',
-			__( 'Theme Info', 'bs-theme' ),
-			__( 'Theme Info', 'bs-theme' ),
+			__( 'Theme Info', 'affp-theme' ),
+			__( 'Theme Info', 'affp-theme' ),
 			'manage_options',
-			'bs-theme-info',
+			'affp-theme-info',
 			[ $this, 'theme_info_output' ]
 		);
 
@@ -853,13 +808,13 @@ final class Functions {
  * @access public
  * @return object
  */
-function bs_theme() {
+function AFFP_Theme() {
 
-	$bs_theme = Functions::get_instance();
+	$AFFP_Theme = Functions::get_instance();
 
-	return $bs_theme;
+	return $AFFP_Theme;
 
 }
 
 // Run the Functions class.
-bs_theme();
+AFFP_Theme();
