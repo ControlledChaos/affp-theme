@@ -16,7 +16,7 @@
  * @since      1.0.0
  */
 
-get_header( 'front-sections' ); ?>
+get_header(); ?>
 
 	<div id="primary" class="content-area">
 		<main class="site-main front-page-main" id="front-page-sections" itemscope itemprop="mainContentOfPage">
@@ -93,4 +93,4 @@ endwhile; // End of the loop.
 		</main>
 	</div>
 
-<?php get_footer( 'front-sections' );
+<?php get_footer();

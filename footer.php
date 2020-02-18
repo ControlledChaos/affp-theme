@@ -30,11 +30,6 @@ $copyright = sprintf(
 
 <?php AFFP_Theme\Tags\after_page(); ?>
 <?php wp_footer(); ?>
-<script>
-jQuery(window).load( function () {
-	jQuery('html').addClass('site-loaded');
-    jQuery('.loader').fadeOut(350);
-});
-</script>
+<?php do_action( 'affp_scripts' ); ?>
 </body>
 </html>

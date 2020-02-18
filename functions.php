@@ -153,6 +153,9 @@ final class Functions {
 		// Frontend scripts.
 		add_action( 'wp_enqueue_scripts', [ $this, 'frontend_scripts' ] );
 
+		// Footer scripts, add late.
+		add_action( 'affp_scripts', [ $this, 'footer_scripts' ], 99 );
+
 		// Admin scripts.
 		add_action( 'admin_enqueue_scripts', [ $this, 'admin_scripts' ] );
 
@@ -546,6 +549,55 @@ final class Functions {
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
 		}
+
+	}
+
+	/**
+	 * Footer scripts
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return void
+	 */
+	public function footer_scripts() {
+
+		?>
+		<script>
+		jQuery(document).ready( function($) {
+			/**
+			 * Add Tooltipster
+			 *
+			 * Uses the title attribute in elements with the .tooltip class.
+			 */
+			$( '.tooltip' ).tooltipster({
+				delay : 150,
+				animationDuration : 150,
+				theme : 'affp-tooltips'
+			});
+
+			// Toggle the side menu.
+			$( '#side-menu-toggle' ).click( function() {
+				$( '.secondary-nav' ).addClass( 'open' );
+				$( '#menu-open' ).attr( 'aria-expanded', function ( i, attr ) {
+					return attr == 'true' ? 'false' : 'true'
+				});
+				$( '.body-overlay' ).addClass( 'menu-open' );
+			});
+			$( '#menu-close' ).click( function() {
+				$( '.secondary-nav' ).removeClass( 'open' );
+				$( '.body-overlay' ).removeClass( 'menu-open' );
+			});
+		});
+		</script>
+		<?php if ( ! is_page_template( 'page-templates/front-page-sections.php' ) ) : ?>
+		<script>
+		// Fade out the loading screen.
+		jQuery(window).load( function () {
+			jQuery('html').addClass('site-loaded');
+			jQuery('.loader').fadeOut(350);
+		});
+		</script>
+		<?php endif;
 
 	}
 

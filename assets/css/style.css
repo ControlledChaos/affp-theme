@@ -1654,19 +1654,19 @@ body:not(.fp-viewing-splash) .navbar {
   transition-delay: 0.25s;
 }
 
-.front-page-main .front-page-section.fp-completely h2,
-.front-page-main .front-page-section.fp-completely .featured-project-info > h3, .front-page-main .front-page-section.section-viewed h2,
-.front-page-main .front-page-section.section-viewed .featured-project-info > h3 {
+.front-page-main .front-page-section:not(.splash).fp-completely h2,
+.front-page-main .front-page-section:not(.splash).fp-completely .featured-project-info > h3, .front-page-main .front-page-section:not(.splash).section-viewed h2,
+.front-page-main .front-page-section:not(.splash).section-viewed .featured-project-info > h3 {
   opacity: 1;
   -webkit-transform: translateY(0);
   transform: translateY(0);
 }
 
-.front-page-main .front-page-section.fp-completely h4,
-.front-page-main .front-page-section.fp-completely p,
-.front-page-main .front-page-section.fp-completely ul, .front-page-main .front-page-section.section-viewed h4,
-.front-page-main .front-page-section.section-viewed p,
-.front-page-main .front-page-section.section-viewed ul {
+.front-page-main .front-page-section:not(.splash).fp-completely h4,
+.front-page-main .front-page-section:not(.splash).fp-completely p,
+.front-page-main .front-page-section:not(.splash).fp-completely ul, .front-page-main .front-page-section:not(.splash).section-viewed h4,
+.front-page-main .front-page-section:not(.splash).section-viewed p,
+.front-page-main .front-page-section:not(.splash).section-viewed ul {
   opacity: 1;
   -webkit-transform: translateY(0);
   transform: translateY(0);
@@ -1741,6 +1741,15 @@ body:not(.fp-viewing-splash) .navbar {
       justify-content: center;
   width: 100%;
   padding: 0 2rem;
+  opacity: 0;
+  -webkit-transition: opacity 1.5s;
+  transition: opacity 1.5s;
+  -webkit-transition-delay: 0.35s;
+          transition-delay: 0.35s;
+}
+
+.splash.fp-completely .site-header, .splash.section-viewed .site-header {
+  opacity: 1;
 }
 
 .splash a {
