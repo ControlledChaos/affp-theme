@@ -93,7 +93,11 @@ jQuery(document).ready( function($) {
 		afterLoad: function( origin, destination, direction ) {
 			var loadedSection = this;
 
-			// Add .section-viewed class by slug/class when leaving a section.
+			/**
+			 * Add .section-viewed class by slug/class when leaving a section.
+			 * This class is used to stop various transforms, transitions, etc
+			 * when the section is first viewed.
+			 */
 			<?php if ( have_rows( 'front_page_sections' ) ) : while ( have_rows( 'front_page_sections' ) ) : the_row(); $slug = get_sub_field( 'fp_section_slug' ); $menuanchor = str_replace( ' ', '', $slug );
 			echo "if (origin.anchor == '" . $menuanchor . "') { $('." . $menuanchor . "').addClass('section-viewed'); }"; endwhile; endif; ?>
 		}
