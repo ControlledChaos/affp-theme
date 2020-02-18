@@ -1,0 +1,139 @@
+/**
+ * Framework
+ */
+
+html {
+	height: 100vh;
+	overflow: hidden;
+	background: $dark;
+
+	&.site-loaded {
+		height: 100%;
+		overflow-y: auto;
+	}
+}
+
+body {
+	background: $dark;
+	color: $white;
+}
+
+@-webkit-keyframes spinner {
+	from {-webkit-transform: rotate(0deg);transform: rotate(0deg);}
+	to {-webkit-transform: rotate(359deg);transform: rotate(359deg);}
+}
+
+@keyframes spinner {
+	from {-webkit-transform: rotate(0deg);transform: rotate(0deg);}
+	to {-webkit-transform: rotate(359deg);transform: rotate(359deg);}
+}
+
+.loader {
+    z-index: 9999;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: -webkit-box;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	        flex-direction: column;
+    -webkit-box-align: center;
+            align-items: center;
+    -webkit-box-pack: center;
+            justify-content: center;
+	background: $dark;
+
+	.loading {
+		margin-top: 1em;
+		font-family: $display_font;
+		font-size: 1.8rem;
+		font-weight: 400;
+		line-height: 1;
+		letter-spacing: 0.25em;
+		text-transform: lowercase;
+	}
+
+	.spinner {
+		border: 2px solid rgba(100,100,100, .3);
+		border-top: 2px solid rgba(255, 255, 255, 1);
+		border-radius: 100%;
+		height: 64px;
+		width: 64px;
+		-webkit-animation: spinner .8s infinite linear;
+				animation: spinner .8s infinite linear;
+		background: transparent;
+		z-index: 99999;
+	}
+}
+
+.body-overlay {
+    display: none;
+    z-index: 5002;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0,0,0,0.85);
+    opacity: 0;
+    -webkit-transition: opacity .25s;
+    transition: opacity .25s;
+}
+
+.body-overlay.menu-open {
+    display: block;
+    opacity: 0.85;
+}
+
+.wrapper {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+}
+
+.site {}
+
+.site-content {
+
+	.content-area {
+		width: 100%;
+	}
+}
+
+main article {
+	clear: both;
+}
+
+/* Do not show the outline on the skip link target. */
+#content[tabindex="-1"]:focus {
+	outline: 0;
+}
+
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+	content: "";
+	display: table;
+	table-layout: fixed;
+}
+
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+	clear: both;
+}

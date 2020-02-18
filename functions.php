@@ -38,6 +38,44 @@ if ( ! defined( 'ABSPATH' ) ) {
 include_once( ABSPATH . 'wp-admin/includes/plugin.php' );
 
 /**
+ * Define the companion plugin path: directory and core file name.
+ *
+ * @since  1.0.0
+ * @return string Returns the plugin path of the companion.
+ */
+if ( ! defined( 'AF_PLUGIN' ) ) {
+	define( 'AF_PLUGIN', 'af-plugin/af-plugin.php' );
+}
+
+/**
+ * Define the companion plugin name
+ *
+ * Used in admin notices.
+ *
+ * @since  1.0.0
+ * @return string Returns the parent plugin name.
+ */
+if ( ! defined( 'AF_PLUGIN_NAME' ) ) {
+	define( 'AF_PLUGIN_NAME', 'Audrey Fisher Plugin' );
+}
+
+/**
+ * Check for plugin dependency
+ *
+ * Add an admin error notice if the companion plugin is not active.
+ *
+ * @link   https://github.com/ControlledChaos/af-plugin
+ *
+ * @since  1.0.0
+ * @return void
+ */
+if ( ! is_plugin_active( AF_PLUGIN ) ) {
+	add_action( 'admin_notices', function() {
+		require_once get_parent_theme_file_path( '/includes/partials/companion-plugin-notice.php' );
+	} );
+}
+
+/**
  * BS Theme functions class
  *
  * @since  1.0.0
@@ -319,26 +357,6 @@ final class Functions {
 		add_image_size( __( 'small-banner', 'affp-theme' ), 640, 274, true );
 
 		/**
-		 * Custom header
-		 */
-		$default_image = register_default_headers( [
-			'default_image' => [
-				'url'           => '%s/assets/images/default-header.jpg',
-				'thumbnail_url' => '%s/assets/images/default-header.jpg',
-				'description'   => __( 'Default Header Image', 'affp-theme' ),
-			],
-		] );
-
-		add_theme_support( 'custom-header', apply_filters( 'bst_custom_header_args', [
-			'width'              => 2048,
-			'height'             => 878,
-			'flex-height'        => true,
-			'default-image'      => $default_image,
-			'video'              => false,
-			'wp-head-callback'   => [ $this, 'header_style' ]
-		] ) );
-
-		/**
 		 * Custom logo
 		 *
 		 * @since 1.0.0
@@ -346,14 +364,14 @@ final class Functions {
 
 		// Logo arguments.
 		$logo_args = [
-			'width'       => 180,
-			'height'      => 180,
+			'width'       => 160,
+			'height'      => 160,
 			'flex-width'  => true,
 			'flex-height' => true
 		];
 
 		// Apply a filter to logo arguments.
-		$logo = apply_filters( 'bst_header_image', $logo_args );
+		$logo = apply_filters( 'affp_header_image', $logo_args );
 
 		// Add logo support.
 		add_theme_support( 'custom-logo', $logo );
@@ -517,6 +535,13 @@ final class Functions {
 		wp_enqueue_script( 'affp-theme-fitvids', get_theme_file_uri( '/assets/js/jquery.fitvids.min.js' ), [ 'jquery' ], null, true );
 		wp_add_inline_script( 'affp-theme-fitvids', 'jQuery(document).ready(function($){ $( ".entry-content" ).fitVids(); });', true );
 
+		// Front page scripts.
+		if ( is_front_page() ) {
+			// wp_enqueue_script( 'affp-scrolloverflow', get_theme_file_uri( '/assets/js/scrolloverflow.min.js' ), [], null, true );
+			// wp_enqueue_script( 'affp-fullpage', get_theme_file_uri( '/assets/js/fullpage.extensions.min.js' ), [], null, true );
+			// wp_enqueue_script( 'affp-easings', get_theme_file_uri( '/assets/js/easings.min.js' ), [], null, true );
+		}
+
 		// Comments scripts.
 		if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 			wp_enqueue_script( 'comment-reply' );
@@ -552,13 +577,15 @@ final class Functions {
 		 * The main stylesheet, in the root directory, only contains the theme header but
 		 * it is necessary for theme activation. DO NOT delete the main stylesheet!
 		 */
-		wp_enqueue_style( 'affp-theme', get_theme_file_uri( '/assets/css/style.min.css' ), [], '' );
+		wp_enqueue_style( 'affp-theme', get_theme_file_uri( '/assets/css/style.min.css' ), [], '', 'all' );
 
-		// Block styles.
-		if ( function_exists( 'has_blocks' ) ) {
-			if ( has_blocks() ) {
-				wp_enqueue_style( 'affp-theme-blocks', get_theme_file_uri( '/assets/css/blocks.min.css' ), [ 'affp-theme' ], '' );
-			}
+		// Google fonts.
+		wp_enqueue_style( 'affp-google-fonts', get_theme_file_uri( 'https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i&display=swap' ), [ 'affp-theme' ], '', 'all' );
+
+		// Front page styles.
+		if ( is_front_page() ) {
+			wp_enqueue_style( 'affp-fullpage', get_theme_file_uri( '/assets/css/fullpage.min.css' ), [ 'affp-theme' ], '', 'screen' );
+			wp_enqueue_style( 'affp-keyframes', get_theme_file_uri( '/assets/css/keyframes.min.css' ), [ 'affp-theme' ], '', 'screen' );
 		}
 
 		// Print styles.
@@ -574,6 +601,9 @@ final class Functions {
 	 * @return void
 	 */
 	public function admin_styles() {
+
+		// Google fonts.
+		wp_enqueue_style( 'affp-google-fonts', get_theme_file_uri( 'https://fonts.googleapis.com/css?family=Nunito+Sans:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&display=swap' ), [ 'affp-theme' ], '', 'all' );
 
 		wp_enqueue_style( 'affp-theme-admin', get_theme_file_uri( '/assets/css/admin.min.css' ), [], '' );
 
@@ -621,6 +651,7 @@ final class Functions {
 		require get_theme_file_path( '/includes/template-functions.php' );
 		require get_theme_file_path( '/includes/template-tags.php' );
 		require get_theme_file_path( '/includes/customizer.php' );
+		// require get_parent_theme_file_path( '/includes/register-acf-fields.php' );
 
 	}
 

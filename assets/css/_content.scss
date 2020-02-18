@@ -14,12 +14,6 @@
 	display: none;
 }
 
-.page-content,
-.entry-content,
-.entry-summary {
-	margin: 1.5em 0 0;
-}
-
 .page-links {
 	clear: both;
 	margin: 0 0 1.5em;
@@ -32,4 +26,175 @@
 
 .entry-footer span {
 	margin-right: 1em;
+}
+
+/**
+ * Posts and pages
+ */
+.entry-content {
+
+	.projects-grid {
+		display: grid;
+		grid-template-columns: repeat(6, 1fr);
+		grid-gap: 0.35em 0.35em;
+		max-width: 100vw;
+		margin: 2em 0 0;
+		padding: 0;
+		list-style: none;
+
+		figure {
+			position: relative;
+			overflow: hidden;
+			height: 100%;
+
+			img {
+				display: block;
+				width: 100%;
+				height: auto;
+				max-width: 100%;
+				opacity: 0.85;
+				-webkit-transition: all .25s;
+				transition: all .25s;
+			}
+
+			figcaption {
+				position: absolute;
+				left: 0;
+				bottom: 0;
+				width: 100%;
+				height: 100%;
+				line-height: 1.2;
+				background: rgba(0,0,0,0.85);
+				color: $white;
+				opacity: 0;
+				-webkit-transition: all .25s;
+				transition: all .25s;
+
+				.projects-grid-links {
+					position: absolute;
+					left: 0;
+					bottom: 0;
+					width: 100%;
+					display: -webkit-box;
+					display: -moz-box;
+					display: -ms-flexbox;
+					display: flex;
+					-ms-flex-pack: distribute;
+						justify-content: space-around;
+					-ms-flex-wrap: wrap;
+						flex-wrap: wrap;
+					margin-top: 1em;
+					padding: 0.5em 1em;
+					-webkit-transition: all .15s;
+					transition: all .15s;
+
+					a {
+						display: inline-block;
+						font-size: 1.125em;
+						text-decoration: none;
+						color: $white;
+						color: rgba(255,255,255,0.65);
+
+						&:hover,
+						&:focus {
+							color: rgba(255,255,255,0.85);
+							color: $white;
+						}
+					}
+				}
+			}
+
+			&:hover,
+			&:focus {
+
+				img {
+					opacity: 1;
+				}
+
+				figcaption {
+					opacity: 1;
+				}
+			}
+		}
+	}
+}
+
+.featured-projects-slider {
+
+	h3 {
+		text-transform: uppercase;
+		letter-spacing: 0.2em;
+	}
+
+	.slick-prev:before,
+	.slick-next:before {
+		font-size: 4rem;
+	}
+}
+
+/*
+ * Tooltips
+ */
+.tooltipster-sidetip.affp-tooltips .tooltipster-box,
+.tooltipster-follower.affp-tooltips .tooltipster-box {
+	border: solid 1px $white;
+	border-radius: 0px;
+	-webkit-box-shadow: none;
+	        box-shadow: none;
+}
+
+.tooltipster-sidetip.affp-tooltips .tooltipster-content,
+.tooltipster-follower.affp-tooltips .tooltipster-content {
+	background: $dark;
+	color: $white;
+	border-radius: 0px;
+	padding: 1em;
+	line-height: 1;
+	font-family: $display_font;
+	font-size: 1.325rem;
+	font-weight: 350;
+}
+
+.tooltipster-sidetip.affp-tooltips.tooltipster-bottom .tooltipster-arrow,
+.tooltipster-sidetip.affp-tooltips.tooltipster-top .tooltipster-arrow {
+	height: 1rem;
+	bottom: -1px;
+	margin-left: -1rem;
+	width: 3.4rem;
+}
+
+.tooltipster-sidetip.affp-tooltips.tooltipster-bottom .tooltipster-arrow-border,
+.tooltipster-follower.affp-tooltips.tooltipster-bottom .tooltipster-arrow-border {
+	border-bottom-color: $white;
+}
+
+.tooltipster-sidetip.affp-tooltips.tooltipster-left .tooltipster-arrow-border,
+.tooltipster-follower.affp-tooltips.tooltipster-left .tooltipster-arrow-border {
+	border-left-color: $white;
+}
+
+.tooltipster-sidetip.affp-tooltips.tooltipster-right .tooltipster-arrow-border,
+.tooltipster-follower.affp-tooltips.tooltipster-right .tooltipster-arrow-border {
+	border-right-color: $white;
+}
+
+.tooltipster-sidetip.affp-tooltips.tooltipster-top .tooltipster-arrow-border,
+.tooltipster-follower.affp-tooltips.tooltipster-top .tooltipster-arrow-border {
+	border-top-color: $white;
+}
+
+.tooltipster-sidetip.affp-tooltips.tooltipster-bottom .tooltipster-arrow-background {
+	border-bottom-color: $dark;
+}
+
+.tooltipster-sidetip.affp-tooltips.tooltipster-left .tooltipster-arrow-background {
+	border-left-color: $dark;
+}
+
+.tooltipster-sidetip.affp-tooltips.tooltipster-right .tooltipster-arrow-background {
+	border-right-color: $dark;
+}
+
+.tooltipster-sidetip.affp-tooltips.tooltipster-top .tooltipster-arrow-background {
+	border-top-color: $dark;
 }

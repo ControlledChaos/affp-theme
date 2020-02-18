@@ -24,14 +24,7 @@
 	<?php AFFP_Theme\Tags\post_thumbnail(); ?>
 
 	<div class="entry-content" itemprop="articleBody">
-		<?php
-		the_content();
-
-		wp_link_pages( [
-			'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'affp-theme' ),
-			'after'  => '</div>',
-		] );
-		?>
+		<?php the_content(); ?>
 	</div>
 
 	<?php if ( get_edit_post_link() ) : ?>

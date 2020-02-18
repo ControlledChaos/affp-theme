@@ -60,7 +60,7 @@ input[type="checkbox"] {
 	cursor: pointer;
 }
 
-button,
+button:not(.fancybox-button):not(.slick),
 button[type="submit"],
 input[type="submit"],
 input[type="button"],

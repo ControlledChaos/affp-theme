@@ -1,0 +1,49 @@
+/**
+ * Styles for when JavaScript is disabled
+ */
+ html.no-js {
+	height: 100%;
+	overflow-y: scroll;
+
+	.loader {
+		display: none;
+	}
+
+	/* Front page */
+	.front-page-main {
+
+		section {
+			min-height: 100%;
+
+			&.splash {
+				min-height: 100vh;
+				display: -webkit-box;
+				display: -moz-box;
+				display: -ms-flexbox;
+				display: flex;
+				-webkit-box-align: center;
+				        align-items: center;
+			}
+
+			h2 {
+				opacity: 1;
+				-webkit-transform: translateY(0);
+						transform: translateY(0);
+			}
+
+			p {
+				opacity: 1;
+				-webkit-transform: translateY(0);
+						transform: translateY(0);
+			}
+
+			.avatar {
+				opacity: 1;
+			}
+		}
+	}
+
+	#intro-entry-link {
+		cursor: default;
+	}
+}

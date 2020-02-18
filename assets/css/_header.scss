@@ -19,3 +19,55 @@
 .site-header-image {
 	margin: 1em 0;
 }
+
+.page-template-front-page-sections {
+
+	.site-header {
+		z-index: 100;
+	}
+
+	.site-title {
+		font-size: 15vw;
+		font-size: 5.4rem;
+		font-weight: lighter;
+		font-weight: 200;
+		line-height: 1;
+		letter-spacing: 0.2em;
+		text-align: center;
+
+		& a {
+			color: inherit;
+			text-decoration: inherit;
+		}
+	}
+
+	.site-description {
+		font-family: $display_font;
+		font-size: 8vw;
+		font-size: 3.2rem;
+		line-height: 1.1;
+		letter-spacing: 0.35em;
+		text-transform: lowercase;
+		text-align: center;
+	}
+
+	.site-header-image {
+		margin: 1em 0;
+	}
+}
+
+@media screen and (min-width: 37.5em) {
+
+	.page-template-front-page-sections {
+
+		.site-title {
+			font-size: 7.2rem;
+		}
+
+		.site-description {
+			margin-top: 0.25em;
+			font-size: 3.6rem;
+			line-height: 1;
+		}
+	}
+}

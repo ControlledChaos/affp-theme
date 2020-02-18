@@ -102,23 +102,44 @@ figure {
 	}
 }
 
-.gallery {
+article .gallery {
 	display: -webkit-box;
 	display: -moz-box;
 	display: -ms-flexbox;
 	display: flex;
 	-ms-flex-wrap: wrap;
-	    flex-wrap: wrap;
+		flex-wrap: wrap;
 	margin-top: 1em;
+	padding: 0;
 	list-style: none; /*for galleries as list elements */
 
 	& .gallery-item {
-		width: 33.33325%;
-		width: calc(100% / 3);
+		border: solid 2px transparent;
 
 		& img {
-			border-color: transparent !important;
+			display: block;
+			width: 100%;
+			border: none;
 		}
+	}
+
+	&.gallery-size-thumbnail .gallery-item {
+		max-width: 12.5%;
+		max-width: calc(100% / 8);
+	}
+
+	&.gallery-size-large-thumbnail .gallery-item {
+		max-width: 20%;
+	}
+
+	&.gallery-size-x-large-thumbnail .gallery-item {
+		max-width: 25%;
+	}
+
+	&.gallery-size-medium .gallery-item,
+	&.gallery-size-video .gallery-item {
+		max-width: 33.33325%;
+		max-width: calc(100% / 3);
 	}
 
 	& .gallery-caption {}
@@ -133,4 +154,49 @@ figure {
 	vertical-align: middle;
 	max-width: 48px;
 	margin-right: 0.5em;
+}
+
+.custom-logo {
+	width: 50px;
+	font-size: 0px;
+}
+
+/* When CSS Grid is not supported */
+@supports not ( (display: grid) ) {
+	/* Styles */
+}
+
+/* When CSS Flexbox is not supported */
+@supports not ( (display: flex) or (display: flexbox) ) {
+	/* Styles */
+}
+
+@media screen and (min-width: 37.5em) {
+
+	img,
+	figure {
+
+		&.alignleft {
+			float: left;
+			margin: 1em 1em 0 0;
+		}
+
+		&.alignright {
+			float: right;
+			margin: 1em 0 0 1em;
+		}
+	}
+
+	.entry-content p img {
+
+		&.alignleft {
+			float: left;
+			margin: 0 1em 1em 0;
+		}
+
+		&.alignright {
+			float: right;
+			margin: 0 0 1em 1em;
+		}
+	}
 }

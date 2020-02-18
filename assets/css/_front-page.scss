@@ -1,0 +1,297 @@
+/**
+ * Front page
+ */
+
+.front-page {
+	position: relative;
+}
+
+.bounce-in-fwd {
+	-webkit-animation: bounce-in-fwd 1.1s both;
+	        animation: bounce-in-fwd 1.1s both;
+}
+
+/* General section styles */
+.front-page-main {
+
+	.front-page-section {
+		position: relative;
+		height: 100%;
+		min-height: 100vh;
+
+		.fp-scrollable,
+		.fp-scroller {
+			width: 100%;
+		}
+
+		.fp-scrollable {
+			position: relative;
+		}
+
+		.wrapper {
+			width: 100%;
+			padding: 3rem 3rem 9rem;
+		}
+
+		header {
+
+			.wrapper {
+				padding-top: 14vh;
+			}
+		}
+
+		h2,
+		.featured-project-info > h3 {
+			margin: 0;
+			opacity: 0;
+			-webkit-transform: translateY(-2em);
+			        transform: translateY(-2em);
+			-webkit-transition: all .25s;
+			transition: all .25s;
+		}
+
+		h4 + p {
+			margin-top: 0.5em;
+		}
+
+		&:not(.splash) {
+			padding-top: 6rem;
+
+			h4,
+			p,
+			ul {
+				font-size: 1.825rem;
+				line-height: 1.5;
+				opacity: 0;
+				-webkit-transform: translateY(1em);
+						transform: translateY(1em);
+				-webkit-transition: all .25s;
+				transition: all .25s;
+
+				-webkit-transition-delay: 0.25s;
+						transition-delay: 0.25s;
+			}
+		}
+
+		&.fp-completely,
+		&.section-viewed {
+
+			h2,
+			.featured-project-info > h3 {
+				opacity: 1;
+				-webkit-transform: translateY(0);
+				        transform: translateY(0);
+			}
+
+			h4,
+			p,
+			ul {
+				opacity: 1;
+				-webkit-transform: translateY(0);
+				        transform: translateY(0);
+			}
+		}
+
+		&.has-subsections {
+
+			header {
+				position: absolute;
+				width: 100%;
+				z-index: 100;
+			}
+		}
+
+		.subsection {
+			transform: translateY(-15vh);
+			transform: translateY(0);
+			padding: 2rem;
+		}
+
+		.next-section {
+			font-family: $display_font;
+			font-weight: 400;
+		}
+
+		.avatar {
+			width: 100%;
+			max-width: 320px;
+			max-width: 14vw;
+			min-width: 240px;
+			margin-top: 2em;
+			-webkit-clip-path: circle();
+			        clip-path: circle();
+ 			shape-outside: circle();
+			opacity: 0;
+			-webkit-transform: scale(0.75);
+			        transform: scale(0.75);
+			-webkit-transition: all .25s;
+			transition: all .25s;
+			-webkit-transition-delay: .65s;
+			        transition-delay: .65s;
+		}
+
+		&.fp-completely,
+		&.section-viewed {
+
+			.avatar {
+				opacity: 1;
+				-webkit-transform: scale(1);
+				        transform: scale(1);
+			}
+		}
+	}
+}
+
+/* Splash/slides section */
+.splash {
+	position: relative;
+	height: 100vh;
+	overflow: hidden;
+	background-color: $dark;
+	color: $white;
+
+	.site-header {
+		position: relative;
+		display: -webkit-box;
+		display: -moz-box;
+		display: -ms-flexbox;
+		display: flex;
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
+				flex-direction: column;
+		-webkit-box-align: center;
+				align-items: center;
+		-webkit-box-pack: center;
+				justify-content: center;
+		width: 100%;
+		padding: 0 2rem;
+	}
+
+	a {
+		color: $white;
+	}
+}
+
+#intro-entry-link {
+	display: block;
+	margin-top: 10vh;
+	font-size: 3rem;
+	-webkit-animation: bouncy linear 1s infinite;
+	        animation: bouncy linear 1s infinite;
+	-webkit-transform-origin: 50% 50%;
+			transform-origin: 50% 50%;
+	opacity: 0.85;
+	cursor: pointer;
+
+	&:hover {
+		-webkit-animation: none;
+		        animation: none;
+	}
+}
+
+.fp-viewing-splash #fp-nav {
+	z-index: -1;
+}
+
+.intro-overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+
+	ul {
+		margin: 0 !important;
+
+		li {
+			bottom: 0;
+			right: 0;
+			height: 100vh;
+			background-position: center center;
+			background-repeat: no-repeat;
+			background-size: cover;
+			-webkit-filter: blur(0px);
+					filter: blur(0px);
+
+			&:before {
+				content: '';
+				display: block;
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				background-color: rgba(28,28,36,0.9);
+			}
+		}
+	}
+
+	img {
+		display: block;
+		width: 100%;
+		-o-object-fit: cover;
+		   object-fit: cover;
+	}
+}
+
+.next-section {
+	cursor: pointer;
+}
+
+.featured-projects-slider {
+	margin-top: 5vh;
+}
+
+.featured-project {
+	display: -webkit-box;
+	display: -moz-box;
+	display: -ms-flexbox;
+	display: flex;
+	width: 100%;
+	height: 100%;
+
+	.featured-project-poster {
+		width: 30%;
+		max-width: 240px;
+		margin-right: 2em;
+	}
+
+	.featured-project-info {
+		width: 70%;
+
+		ul {
+			list-style: none;
+			width: 100%;
+			display: -webkit-box;
+			display: -moz-box;
+			display: -ms-flexbox;
+			display: flex;
+			padding: 0;
+
+			li {
+				display: inline;
+				margin-right: 1em;
+
+				a {
+					display: inline-block;
+					font-size: 1.825rem;
+				}
+			}
+		}
+	}
+}
+
+@media screen and (min-width: 37.5em) {
+
+	.intro-header-text {
+		padding: 0 8vw;
+
+		&.intro-header-text-narrow {
+			display: none;
+		}
+
+		&.intro-header-text-wide {
+			display: block;
+		}
+	}
+}
