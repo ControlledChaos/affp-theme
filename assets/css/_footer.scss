@@ -1,7 +1,12 @@
 /**
  * Footer
  */
- .copyright-text {
+.site-footer {
+	padding: 3rem;
+}
+
+.copyright-text {
 	font-size: 0.825em;
 	text-align: center;
+	color: rgba($color: $white, $alpha: 0.7);
 }

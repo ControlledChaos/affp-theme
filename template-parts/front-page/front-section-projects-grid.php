@@ -14,7 +14,7 @@ $args = [
 	'nopaging'       => true,
 	'posts_per_page' => 6,
 	'paged'          => 1,
-	'order'          => 'DESC',
+	'order'          => 'ASC',
 	'orderby'        => 'menu_order',
 ];
 $query = new WP_Query( $args );
@@ -22,7 +22,6 @@ $query = new WP_Query( $args );
 if ( $query->have_posts() ) : ?>
 	<ul class="projects-grid">
 	<?php while ( $query->have_posts() ) : $query->the_post();
-	// get_field( '' );
 	$poster = get_field( 'project_poster_image' );
 	$url    = $poster['url'];
     $title  = $poster['title'];
@@ -41,7 +40,7 @@ if ( $query->have_posts() ) : ?>
 				<figcaption>
 					<h3 class="screen-reader-text"><?php the_title(); ?></h3>
 					<p class="projects-grid-links">
-						<a href="<?php echo $vimeo_url; ?>" data-fancybox><span class="screen-reader-text"><?php _e( 'Trailer', 'affp-theme' ); ?></span><span class="icon-video"></span></a>
+						<a href="<?php echo $vimeo_url; ?>" target="_blank" rel="nofollow" data-fancybox><span class="screen-reader-text"><?php _e( 'Trailer', 'affp-theme' ); ?></span><span class="icon-video"></span></a>
 						<a href="<?php echo ''; ?>"><span class="screen-reader-text"><?php _e( 'Gallery', 'affp-theme' ); ?></span><span class="icon-photo"></span></a>
 						<a href="<?php the_permalink(); ?>"><span class="screen-reader-text"><?php _e( 'Info', 'affp-theme' ); ?></span><span class="icon-info"></span></a>
 					</p>

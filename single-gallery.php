@@ -1,6 +1,6 @@
 <?php
 /**
- * The template for displaying all single posts
+ * The template for displaying gallery posts
  *
  * @package    WordPress/ClassicPress
  * @subpackage AFFP_Theme
@@ -10,7 +10,7 @@
 get_header(); ?>
 
 	<div id="primary" class="content-area">
-		<main id="main" class="site-main" itemscope itemprop="mainContentOfPage">
+		<main id="main" class="site-main wrapper" itemscope itemprop="mainContentOfPage">
 
 		<?php
 		while ( have_posts() ) :

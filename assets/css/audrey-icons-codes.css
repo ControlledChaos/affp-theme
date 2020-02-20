@@ -4,6 +4,7 @@
 .icon-right:before { content: '\e802'; } /* '' */
 .icon-up:before { content: '\e803'; } /* '' */
 .icon-down:before { content: '\e804'; } /* '' */
+.icon-more:before { content: '\e805'; } /* '' */
 .icon-photo:before { content: '\e806'; } /* '' */
 .icon-info:before { content: '\e807'; } /* '' */
 .icon-light:before { content: '\e808'; } /* '' */
@@ -17,6 +18,7 @@
 .icon-logout:before { content: '\f02d'; } /* '' */
 .icon-download:before { content: '\f02e'; } /* '' */
 .icon-upload:before { content: '\f02f'; } /* '' */
+.icon-link:before { content: '\f07b'; } /* '' */
 .icon-send:before { content: '\f1d8'; } /* '' */
 .icon-vimeo:before { content: '\f306'; } /* '' */
 .icon-pinterest:before { content: '\f312'; } /* '' */

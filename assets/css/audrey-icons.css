@@ -1,11 +1,11 @@
 @font-face {
   font-family: 'audrey-icons';
-  src: url('../fonts/audrey-icons.eot?37685397');
-  src: url('../fonts/audrey-icons.eot?37685397#iefix') format('embedded-opentype'),
-       url('../fonts/audrey-icons.woff2?37685397') format('woff2'),
-       url('../fonts/audrey-icons.woff?37685397') format('woff'),
-       url('../fonts/audrey-icons.ttf?37685397') format('truetype'),
-       url('../fonts/audrey-icons.svg?37685397#audrey-icons') format('svg');
+  src: url('../font/audrey-icons.eot?59534290');
+  src: url('../font/audrey-icons.eot?59534290#iefix') format('embedded-opentype'),
+       url('../font/audrey-icons.woff2?59534290') format('woff2'),
+       url('../font/audrey-icons.woff?59534290') format('woff'),
+       url('../font/audrey-icons.ttf?59534290') format('truetype'),
+       url('../font/audrey-icons.svg?59534290#audrey-icons') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -15,7 +15,7 @@
 @media screen and (-webkit-min-device-pixel-ratio:0) {
   @font-face {
     font-family: 'audrey-icons';
-    src: url('../fonts/audrey-icons.svg?37685397#audrey-icons') format('svg');
+    src: url('../font/audrey-icons.svg?59534290#audrey-icons') format('svg');
   }
 }
 */
@@ -60,6 +60,7 @@
 .icon-right:before { content: '\e802'; } /* '' */
 .icon-up:before { content: '\e803'; } /* '' */
 .icon-down:before { content: '\e804'; } /* '' */
+.icon-more:before { content: '\e805'; } /* '' */
 .icon-photo:before { content: '\e806'; } /* '' */
 .icon-info:before { content: '\e807'; } /* '' */
 .icon-light:before { content: '\e808'; } /* '' */
@@ -73,6 +74,7 @@
 .icon-logout:before { content: '\f02d'; } /* '' */
 .icon-download:before { content: '\f02e'; } /* '' */
 .icon-upload:before { content: '\f02f'; } /* '' */
+.icon-link:before { content: '\f07b'; } /* '' */
 .icon-send:before { content: '\f1d8'; } /* '' */
 .icon-vimeo:before { content: '\f306'; } /* '' */
 .icon-pinterest:before { content: '\f312'; } /* '' */

@@ -124,10 +124,15 @@ h4 {
 h1,
 h2 {
   font-size: 2.9rem;
-  font-weight: normal;
-  font-weight: 400;
-  letter-spacing: 0.2em;
+  font-weight: lighter;
+  font-weight: 250;
+  letter-spacing: 0.225em;
   text-transform: uppercase;
+}
+
+h1 a,
+h2 a {
+  font-weight: inherit;
 }
 
 h1.inline-header,
@@ -161,6 +166,11 @@ a:visited {
 
 a:hover, a:focus {
   color: #ffffff;
+}
+
+strong,
+b {
+  font-weight: 500;
 }
 
 .entry-content ul,
@@ -252,6 +262,11 @@ a:hover, a:focus {
 }
 
 /* '' */
+.icon-more:before {
+  content: '\e805';
+}
+
+/* '' */
 .icon-photo:before {
   content: '\e806';
 }
@@ -317,6 +332,11 @@ a:hover, a:focus {
 }
 
 /* '' */
+.icon-link:before {
+  content: '\f07b';
+}
+
+/* '' */
 .icon-send:before {
   content: '\f1d8';
 }
@@ -510,6 +530,39 @@ article .gallery.gallery-size-medium .gallery-item,
 article .gallery.gallery-size-video .gallery-item {
   max-width: 33.33325%;
   max-width: calc(100% / 3);
+}
+
+.project-gallery ul {
+  list-style: none;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+      grid-template-columns: repeat(4, 1fr);
+  grid-gap: 0.5em 0.5em;
+  padding: 0;
+}
+
+.project-gallery ul li {
+  margin: 0;
+}
+
+.project-gallery ul li img {
+  display: block;
+  -webkit-filter: grayscale(20%);
+          filter: grayscale(20%);
+  opacity: 0.9;
+  -webkit-transition: all .15s;
+  transition: all .15s;
+}
+
+.project-gallery ul li:hover img {
+  -webkit-filter: grayscale(0%);
+          filter: grayscale(0%);
+  opacity: 1;
+}
+
+.video-fix {
+  margin: 3rem 0;
 }
 
 .avatar {

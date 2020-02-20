@@ -22,7 +22,7 @@ $copyright = sprintf(
 	</div>
 
 	<footer id="colophon" class="site-footer">
-		<div class="footer-content global-wrapper footer-wrapper">
+		<div class="footer-content wrapper footer-wrapper">
 				<?php echo $copyright; ?>
 		</div>
 	</footer>

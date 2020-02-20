@@ -1,12 +1,32 @@
 /**
  * Header
  */
+.site-header {
+	padding-top: 2rem;
+
+	.wrapper {
+		padding: 2rem 3rem;
+	}
+}
+
+.site-branding {
+	padding-bottom: 3rem;
+	border-bottom: solid 1px rgba($color: $white, $alpha: 0.25);
+	text-align: center;
+}
+
 .site-title {
-	/* Match <p> tag to <h1> tag on front page */
-	font-size: 2em;
-	font-weight: bold;
+	font-family: $display_font;
+	font-size: 4.2rem;
+	font-weight: lighter;
+	font-weight: 250;
+	line-height: 1;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
 
 	& a {
+		font-weight: lighter;
+		font-weight: 250;
 		color: inherit;
 		text-decoration: inherit;
 	}
@@ -14,6 +34,10 @@
 
 .site-description {
 	margin: 0;
+	font-family: $display_font;
+	font-size: 2.5rem;
+	letter-spacing: 0.35em;
+	text-transform: lowercase;
 }
 
 .site-header-image {
@@ -57,6 +81,14 @@
 }
 
 @media screen and (min-width: 37.5em) {
+
+	.site-branding {
+		text-align: left;
+	}
+
+	.site-title {
+		margin-top: 0.5em;
+	}
 
 	.page-template-front-page-sections {
 

@@ -1679,7 +1679,7 @@ function createDefaultScrollbar (direction, interactive, type) {
 
     if ( type === true ) {
         scrollbar.style.cssText = 'position:absolute;z-index:9999';
-        indicator.style.cssText = '-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;position:absolute;background:rgba(255,255,255,0.25);border:1px solid rgba(255,255,255,0.9);border-radius:3px';
+        indicator.style.cssText = '-webkit-box-sizing:border-box;-moz-box-sizing:border-box;box-sizing:border-box;position:absolute;background:rgba(255,255,255,0.35);border:1px solid rgba(255,255,255,0.5);border-radius:3px';
     }
 
     indicator.className = 'iScrollIndicator';
@@ -2280,7 +2280,7 @@ if ( typeof module != 'undefined' && module.exports ) {
                 var scrollHeight = fp_utils.getWindowHeight();
                 var contentHeightWidthPaddings = contentHeight + paddings;
                 var scrollHeightWidthoutPaddings = scrollHeight - paddings;
-                
+
                 //needs scroll?
                 if ( contentHeightWidthPaddings > scrollHeight) {
                     //did we already have an scrollbar ? Updating it
@@ -2411,7 +2411,7 @@ if ( typeof module != 'undefined' && module.exports ) {
                 }
                 var scrollable = fp_utils.closest(target, SCROLLABLE_SEL) || $(SCROLLABLE_SEL, target)[0];
                 var action = enable ? 'enable' : 'disable';
-                
+
                 if(scrollable){
                     scrollable.fp_iscrollInstance[action]();
                 }
@@ -2483,9 +2483,9 @@ if ( typeof module != 'undefined' && module.exports ) {
                     return true;
                 }
 
-                // two times reporting the same Y position ? 
+                // two times reporting the same Y position ?
                 // that means we are on the top or on the bottom of the scroller
-                
+
                 if (type === 'top'){
                     return scroller.y >= 0 && !fp_utils.getScrollTop(scrollable);
                 } else if (type === 'bottom') {

@@ -16,6 +16,14 @@
  * @since      1.0.0
  */
 
+// Stop here and display a notice if ACF Pro is not active.
+if ( ! class_exists( 'acf_pro' ) ) {
+	die( printf(
+		'<h1>%1s</h1><p>%2s</p>',
+		'This page cannot be displayed',
+		'Please activate the <a href="https://www.advancedcustomfields.com/pro/" target="_blank">Advanced Custom Fields Pro</a> plugin to use this custom template, or choose the default page template.'
+	) );
+}
 get_header(); ?>
 
 	<div id="primary" class="content-area">
@@ -34,12 +42,42 @@ get_header(); ?>
 			while ( have_rows( 'front_page_sections' ) ) : the_row();
 			$slug    = get_sub_field( 'fp_section_slug' );
 			$section = str_replace( ' ', '', strtolower( $slug ) );
+
+			// Section classes by layout.
+			if ( get_row_layout() == 'fp_section_content' ) {
+				$class = 'content-section';
+			} elseif ( get_row_layout() == 'fp_section_projects' ) {
+				$class = 'projects-section';
+			} elseif ( get_row_layout() == 'fp_section_press' ) {
+				$class = 'press-section';
+			} elseif ( get_row_layout() == 'fp_section_page' ) {
+				$class = 'page-section';
+			} else {
+				$class = '';
+			}
 			?>
 
-			<section id="<?php echo $section; ?>" class="front-page-section <?php echo $section; ?>" data-anchor="<?php echo $section; ?>">
+			<section class="front-page-section <?php echo$class . ' ' . $section; ?>" data-anchor="<?php echo $section; ?>">
 				<div class="entry-content wrapper">
 					<header>
-						<h2><?php echo get_sub_field( 'fp_section_title' ); ?></h2>
+						<h2>
+							<?php echo get_sub_field( 'fp_section_title' ); ?>
+							<?php
+							if ( get_row_layout() == 'fp_section_projects' ) {
+								echo sprintf(
+									'<span class="view-all-heading-link"><a href="%1s">%2s</a></span>',
+									esc_url( get_post_type_archive_link( 'project' ) ),
+									__( 'View All', 'affp-theme' )
+								);
+							} elseif ( get_row_layout() == 'fp_section_press' ) {
+								echo sprintf(
+									'<span class="view-all-heading-link"><a href="%1s">%2s</a></span>',
+									esc_url( get_post_type_archive_link( 'press' ) ),
+									__( 'View All', 'affp-theme' )
+								);
+							}
+							?>
+						</h2>
 					</header>
 
 					<?php
@@ -50,8 +88,16 @@ get_header(); ?>
 						if ( 'grid' == get_sub_field( 'fp_section_projects_display' ) ) {
 							get_template_part( 'template-parts/front-page/front-section-projects-grid' );
 						} else {
-							echo '<div class="featured-projects-slider">';
+							echo '<div class="featured-slider featured-projects-slider">';
 							get_template_part( 'template-parts/front-page/front-section-projects-slider' );
+							echo '</div>';
+						}
+					} elseif ( get_row_layout() == 'fp_section_press' ) {
+						if ( 'grid' == get_sub_field( 'fp_section_press_display' ) ) {
+							get_template_part( 'template-parts/front-page/front-section-press-grid' );
+						} else {
+							echo '<div class="featured-slider featured-press-slider">';
+							get_template_part( 'template-parts/front-page/front-section-press-slider' );
 							echo '</div>';
 						}
 					} elseif ( get_row_layout() == 'fp_section_page' ) {

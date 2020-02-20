@@ -33,7 +33,9 @@ class FullPage_Scripts {
 
 		add_action( 'affp_scripts', [ $this, 'full_page' ] );
 		add_action( 'affp_scripts', [ $this, 'intro_slides' ] );
-		add_action( 'affp_scripts', [ $this, 'projects_slides' ] );
+
+		// Disabled. Instantiating sliders on FullPage afterRender event.
+		// add_action( 'affp_scripts', [ $this, 'featured_slides' ] );
 
 	}
 
@@ -59,20 +61,58 @@ class FullPage_Scripts {
 			// Instantiate FullPage JS and add options.
 			$( '#front-page-sections' ).fullpage({
 				anchors         : [ 'splash',<?php if ( have_rows( 'front_page_sections' ) ) : while ( have_rows( 'front_page_sections' ) ) : the_row(); $slug = get_sub_field( 'fp_section_slug' ); $anchor = str_replace( ' ', '', strtolower( $slug ) ); echo "'" . $anchor . "',"; endwhile; endif; ?> ],
-				lockAnchors     : true,
-				menu            : '#site-navigation',
-				navigation      : false,
-				scrollingSpeed  : 550,
-				css3            : true,
-				easing          : 'easeInOutCubic',
-				controlArrows   : true,
-				sectionSelector : '.front-page-section',
-				dragAndMove     : true,
-				slideSelector   : false,
-				scrollOverflow  : true,
-				afterRender     : function() {
+				lockAnchors      : true,
+				menu             : '#site-navigation',
+				navigation       : false,
+				scrollingSpeed   : 550,
+				css3             : true,
+				easing           : 'easeInOutCubic',
+				controlArrows    : true,
+				sectionSelector  : '.front-page-section',
+				verticalCentered : true,
+				paddingTop       : '80px',
+				paddingBottom    : '30px',
+				responsiveHeight : 560,
+				dragAndMove      : true,
+				slideSelector    : false,
+				scrollOverflow   : true,
+				scrollOverflowReset : true,
+				afterRender      : function() {
 					$( 'html' ).addClass( 'site-loaded' );
 					$( '.loader' ).fadeOut( 350 );
+
+					// Instantiate Slick slider for the featured projects carousel.
+					$( '.featured-projects-slider, .featured-press-slider' ).slick({
+						arrows         : true,
+						dots           : false,
+						slidesToShow   : 1,
+						slidesToScroll : 1,
+						swipeToSlide   : true,
+						draggable      : true,
+						touchThreshold : 5,
+						autoplay       : false,
+						infinite       : true,
+						adaptiveHeight : true,
+						speed          : 300,
+						pauseOnHover   : false,
+						fade           : false,
+						cssEase        : 'ease-in-out',
+						zIndex         : 3500,
+						nextArrow      : '<button class="slick slick-next tooltip" title="<?php _e( 'Next Project', 'affp-theme' ); ?>"><span class="screen-reader-text"><?php _e( 'Next Project', 'affp-theme' ); ?></span></button>',
+						prevArrow      : '<button class="slick slick-prev tooltip" title="<?php _e( 'Previous Project', 'affp-theme' ); ?>"><span class="screen-reader-text"><?php _e( 'Previous Project', 'affp-theme' ); ?></span></button>'
+					});
+
+					// Add the .subsection-viewed class upon leaving a slide/section.
+					$( '.featured-projects-slider, .featured-press-slider' ).on('afterChange', function( event, slick, currentSlide, nextSlide ) {
+						var viewed = currentSlide;
+						$( '.subsection' ).eq( viewed ).addClass( 'subsection-viewed' );
+					});
+
+					$( '.tooltip, .fancybox-toolbar .fancybox-button' ).tooltipster({
+						delay : 150,
+						animationDuration : 150,
+						theme : 'affp-tooltips'
+					});
 				},
 				afterLoad: function( origin, destination, direction ) {
 					var loadedSection = this;
@@ -140,7 +180,7 @@ class FullPage_Scripts {
 	}
 
 	/**
-	 * Featured Projects carousel
+	 * Featured post types carousels
 	 *
 	 * Uses Slick slider JS.
 	 *
@@ -148,18 +188,21 @@ class FullPage_Scripts {
 	 * @access public
 	 * @return string Returns a script block.
 	 */
-	public function projects_slides() {
+	public function featured_slides() {
 
 		?>
 		<script>
 		jQuery(document).ready( function($) {
 
-			// Instantiate Slick slider for the featured projects carousel.
-			$( '.featured-projects-slider' ).slick({
+			// Instantiate Slick slider for the featured carousels.
+			$( '.featured-projects-slider, .featured-press-slider' ).slick({
 				arrows         : true,
 				dots           : false,
 				slidesToShow   : 1,
 				slidesToScroll : 1,
+				swipeToSlide   : true,
+				draggable      : true,
+				touchThreshold : 5,
 				autoplay       : false,
 				infinite       : true,
 				adaptiveHeight : true,
@@ -167,8 +210,15 @@ class FullPage_Scripts {
 				pauseOnHover   : false,
 				fade           : false,
 				cssEase        : 'ease-in-out',
+				zIndex         : 3500,
 				nextArrow      : '<button class="slick slick-next tooltip" title="<?php _e( 'Next Project', 'affp-theme' ); ?>"><span class="screen-reader-text"><?php _e( 'Next Project', 'affp-theme' ); ?></span></button>',
 				prevArrow      : '<button class="slick slick-prev tooltip" title="<?php _e( 'Previous Project', 'affp-theme' ); ?>"><span class="screen-reader-text"><?php _e( 'Previous Project', 'affp-theme' ); ?></span></button>'
+			});
+
+			// Add the .subsection-viewed class upon leaving a slide/section.
+			$( '.featured-projects-slider, .featured-press-slider' ).on('afterChange', function( event, slick, currentSlide, nextSlide ) {
+				var viewed = currentSlide;
+				$( '.subsection' ).eq( viewed ).addClass( 'subsection-viewed' );
 			});
 		});
 		</script>

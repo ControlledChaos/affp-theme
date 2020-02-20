@@ -101,10 +101,14 @@ h4 {
 h1,
 h2 {
 	font-size: 2.9rem;
-	font-weight: normal;
-	font-weight: 400;
-	letter-spacing: 0.2em;
+	font-weight: lighter;
+	font-weight: 250;
+	letter-spacing: 0.225em;
 	text-transform: uppercase;
+
+	a {
+		font-weight: inherit;
+	}
 
 	&.inline-header {
 		display: inline-block;
@@ -137,6 +141,11 @@ a {
 	&:focus {
 		color: $link_hover_color;
 	}
+}
+
+strong,
+b {
+	font-weight: 500;
 }
 
 .entry-content ul,
@@ -215,6 +224,7 @@ a {
 .icon-right:before { content: '\e802'; } /* '' */
 .icon-up:before { content: '\e803'; } /* '' */
 .icon-down:before { content: '\e804'; } /* '' */
+.icon-more:before { content: '\e805'; } /* '' */
 .icon-photo:before { content: '\e806'; } /* '' */
 .icon-info:before { content: '\e807'; } /* '' */
 .icon-light:before { content: '\e808'; } /* '' */
@@ -228,6 +238,7 @@ a {
 .icon-logout:before { content: '\f02d'; } /* '' */
 .icon-download:before { content: '\f02e'; } /* '' */
 .icon-upload:before { content: '\f02f'; } /* '' */
+.icon-link:before { content: '\f07b'; } /* '' */
 .icon-send:before { content: '\f1d8'; } /* '' */
 .icon-vimeo:before { content: '\f306'; } /* '' */
 .icon-pinterest:before { content: '\f312'; } /* '' */

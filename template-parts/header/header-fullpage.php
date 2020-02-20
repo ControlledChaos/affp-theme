@@ -37,8 +37,8 @@
 					$slug       = get_sub_field( 'fp_section_slug' );
 					$menuanchor = str_replace( ' ', '', $slug );
 					?>
-					<li data-menuanchor="<?php echo $menuanchor; ?>">
-						<a href="#<?php echo $menuanchor; ?>"><?php echo ucwords( $menuanchor ); ?></a>
+					<li data-menuanchor="<?php echo strtolower( $menuanchor ); ?>">
+						<a href="#<?php echo strtolower( $menuanchor ); ?>"><?php echo ucwords( $menuanchor ); ?></a>
 					</li>
 					<?php endwhile; ?>
 				</ul>

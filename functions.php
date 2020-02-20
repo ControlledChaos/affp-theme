@@ -179,8 +179,8 @@ final class Functions {
 		// jQuery UI fallback for HTML5 Contact Form 7 form fields.
 		add_filter( 'wpcf7_support_html5_fallback', '__return_true' );
 
-		// Remove WooCommerce styles.
-		add_filter( 'woocommerce_enqueue_styles', '__return_false' );
+		// Remove prepend text from archive titles.
+		add_filter( 'get_the_archive_title', [ $this, 'archive_title' ] );
 
 		// Theme options page.
 		add_action( 'admin_menu', [ $this, 'theme_options' ] );
@@ -561,19 +561,20 @@ final class Functions {
 	 */
 	public function footer_scripts() {
 
+		// Fancybox spinner template.
+		$spinner = sprintf(
+			'<div class="loader">
+				<div class="spinner"></div>
+				<div class="loading">
+					<span class="screen-reader-text">%1s</span>
+				</div>
+			</div>',
+			__( 'Loading image', 'affp-theme' )
+		);
+
 		?>
 		<script>
 		jQuery(document).ready( function($) {
-			/**
-			 * Add Tooltipster
-			 *
-			 * Uses the title attribute in elements with the .tooltip class.
-			 */
-			$( '.tooltip' ).tooltipster({
-				delay : 150,
-				animationDuration : 150,
-				theme : 'affp-tooltips'
-			});
 
 			// Toggle the side menu.
 			$( '#side-menu-toggle' ).click( function() {
@@ -587,15 +588,58 @@ final class Functions {
 				$( '.secondary-nav' ).removeClass( 'open' );
 				$( '.body-overlay' ).removeClass( 'menu-open' );
 			});
+
+			$( '[data-fancybox]' ).fancybox({
+				infobar : false,
+				buttons : [
+					'zoom',
+					'slideShow',
+					'fullScreen',
+					'download',
+					'thumbs',
+					'close'
+				],
+				spinnerTpl : '<div class="spinner"></div>',
+				btnTpl : {
+					arrowLeft :
+						'<button data-fancybox-prev class="fancybox-button fancybox-button--arrow_left icon-left tooltip" title="{{PREV}}"></button>',
+
+					arrowRight :
+						'<button data-fancybox-next class="fancybox-button fancybox-button--arrow_right icon-right tooltip" title="{{NEXT}}"></button>'
+				},
+				afterShow: function( instance, slide ) {
+					$( '.fancybox-button' ).tooltipster({
+						delay : 150,
+						animationDuration : 150,
+						theme : 'affp-tooltips'
+					});
+				}
+			});
+
+			/**
+			 * Add Tooltipster
+			 *
+			 * Uses the title attribute in elements with the .tooltip class.
+			 */
+			$( '.tooltip' ).tooltipster({
+				delay : 150,
+				animationDuration : 150,
+				theme : 'affp-tooltips'
+			});
+
+			// Unwrap Contact Form 7 fields.
+			$( '.wpcf7-form input, .wpcf7-form textarea, .wpcf7-form select' ).unwrap();
 		});
 		</script>
 		<?php if ( ! is_page_template( 'page-templates/front-page-sections.php' ) ) : ?>
 		<script>
 		// Fade out the loading screen.
-		jQuery(window).load( function () {
-			jQuery('html').addClass('site-loaded');
-			jQuery('.loader').fadeOut(350);
-		});
+		( function($) {
+			$(window).load( function() {
+				$( 'html' ).addClass( 'site-loaded' );
+				$( '.loader' ).fadeOut(350);
+			});
+		})(jQuery);
 		</script>
 		<?php endif;
 
@@ -704,6 +748,44 @@ final class Functions {
 		require get_theme_file_path( '/includes/template-tags.php' );
 		require get_theme_file_path( '/includes/customizer.php' );
 		// require get_parent_theme_file_path( '/includes/register-acf-fields.php' );
+
+	}
+
+	/**
+	 * Filter archive titles
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the filtered titles.
+	 */
+	public function archive_title( $title ) {
+
+		// If is taxonomy archive.
+		if ( is_tax() ) {
+			$title = single_cat_title( '', false );
+
+		// If is standard category archive.
+		} elseif ( is_category() ) {
+			$title = single_cat_title( '', false );
+
+		// If is standard tag archive.
+		} elseif ( is_tag() ) {
+			$title = single_tag_title( '', false );
+
+		} elseif ( is_post_type_archive() ) {
+            $title = post_type_archive_title( '', false );
+
+		// If is author archive.
+		} elseif ( is_author() ) {
+			$title = sprintf(
+				'%1s <span class="vcard">%2s</span>',
+				__( 'Posts by', 'mixes-theme' ),
+				get_the_author()
+			);
+		}
+
+		// Return the ammended title.
+    	return $title;
 
 	}
 
