@@ -2,7 +2,7 @@
  * Header
  */
 .site-header {
-	padding-top: 2rem;
+	padding-top: 4rem;
 
 	.wrapper {
 		padding: 2rem 3rem;
@@ -80,7 +80,7 @@
 	}
 }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (min-width: 769px) {
 
 	.site-branding {
 		text-align: left;

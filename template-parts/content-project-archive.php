@@ -42,7 +42,7 @@ if ( $director ) {
 $poster     = get_field( 'project_poster_image' );
 $poster_url = $poster['url'];
 $alt        = $poster['alt'];
-$size       = 'poster-small';
+$size       = 'poster-large';
 $thumb      = $poster['sizes'][ $size ];
 $width      = $poster['sizes'][ $size . '-width' ];
 $height     = $poster['sizes'][ $size . '-height' ];
@@ -65,7 +65,7 @@ $height     = $poster['sizes'][ $size . '-height' ];
 					<?php echo $director; ?>
 				</header>
 				<?php echo $description; ?>
-				<p><a href="<?php the_permalink(); ?>"><?php _e( 'View Project', 'affp-theme' ); ?> <span class="icon-right"></span></a></p>
+				<p class="project-link"><a href="<?php the_permalink(); ?>"><?php _e( 'View Project', 'affp-theme' ); ?> <span class="icon-right"></span></a></p>
 			</div>
 		</div>
 	</div>

@@ -9,6 +9,11 @@
 		display: none;
 	}
 
+	.main-navigation ul {
+		display: block;
+		font-size: 1.25em;
+	}
+
 	/* Front page */
 	.front-page-main {
 
@@ -18,8 +23,6 @@
 			&.splash {
 				min-height: 100vh;
 				display: -webkit-box;
-				display: -moz-box;
-				display: -ms-flexbox;
 				display: flex;
 				-webkit-box-align: center;
 				        align-items: center;
@@ -44,5 +47,13 @@
 
 	.featured-project .project-info ul li.project-gallery-link {
 		display: none;
+	}
+
+	@media screen and (min-width: 769px) {
+
+		.main-navigation ul {
+			display: -webkit-box;
+			display: flex;
+		}
 	}
 }

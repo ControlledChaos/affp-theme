@@ -105,9 +105,10 @@ h2 {
 	font-weight: 250;
 	letter-spacing: 0.225em;
 	text-transform: uppercase;
+	line-height: 1.2;
 
 	a {
-		font-weight: inherit;
+		font-weight: 400;
 	}
 
 	&.inline-header {
@@ -148,9 +149,9 @@ b {
 	font-weight: 500;
 }
 
-.entry-content ul,
+ul:not([class]),
 .sidebar-widgets ul,
-.entry-content ol,
+ol:not([class]),
 .sidebar-widgets ol {
 	padding-left: 1em;
 }
@@ -171,12 +172,12 @@ b {
 }
 
 ::-moz-selection {
-	background-color: $primary_color;
+	background-color: $white;
 	color: black;
 }
 
 ::selection {
-	background-color: $primary_color;
+	background-color: $white;
 	color: black;
 }
 
@@ -201,9 +202,10 @@ b {
 	}
 }
 
+$icons: 'Audrey Icons';
 
 [class^="icon-"]:before, [class*=" icon-"]:before {
-	font-family: 'Audrey Icons';
+	font-family: $icons;
 	font-style: normal;
 	font-weight: normal;
 	speak: none;
@@ -252,7 +254,7 @@ b {
 .slick-next {
 
 	&:before {
-		font-family: 'Audrey Icons';
+		font-family: $icons;
 		text-shadow: none;
 	}
 }

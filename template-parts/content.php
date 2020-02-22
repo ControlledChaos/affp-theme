@@ -28,7 +28,7 @@
 		<?php endif; ?>
 	</header>
 
-	<?php AFFP_Theme\Tags\post_thumbnail(); ?>
+	<?php if ( 'post' === get_post_type() ) { AFFP_Theme\Tags\post_thumbnail(); } ?>
 
 	<div class="entry-content" itemprop="articleBody">
 		<?php

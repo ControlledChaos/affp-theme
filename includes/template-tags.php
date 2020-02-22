@@ -160,6 +160,7 @@ function projects_galleries() {
 
 	$gallery = get_field( 'project_gallery' );
 	$title   = get_field( 'project_title' );
+	$count   = null;
 	if ( $title ) {
 		$title = $title;
 	} else {

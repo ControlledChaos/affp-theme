@@ -65,14 +65,16 @@ get_header(); ?>
 							<?php
 							if ( get_row_layout() == 'fp_section_projects' ) {
 								echo sprintf(
-									'<span class="view-all-heading-link"><a href="%1s">%2s</a></span>',
+									'<span class="view-all-heading-link"><a class="tooltip" href="%1s" title="%2s">%3s</a></span>',
 									esc_url( get_post_type_archive_link( 'project' ) ),
+									__( 'View Project Archives', 'affp-theme' ),
 									__( 'View All', 'affp-theme' )
 								);
 							} elseif ( get_row_layout() == 'fp_section_press' ) {
 								echo sprintf(
-									'<span class="view-all-heading-link"><a href="%1s">%2s</a></span>',
+									'<span class="view-all-heading-link"><a class="tooltip" href="%1s" title="%2s">%3s</a></span>',
 									esc_url( get_post_type_archive_link( 'press' ) ),
+									__( 'View Press Archives', 'affp-theme' ),
 									__( 'View All', 'affp-theme' )
 								);
 							}

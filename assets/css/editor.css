@@ -128,11 +128,12 @@ h2 {
   font-weight: 250;
   letter-spacing: 0.225em;
   text-transform: uppercase;
+  line-height: 1.2;
 }
 
 h1 a,
 h2 a {
-  font-weight: inherit;
+  font-weight: 400;
 }
 
 h1.inline-header,
@@ -173,9 +174,9 @@ b {
   font-weight: 500;
 }
 
-.entry-content ul,
+ul:not([class]),
 .sidebar-widgets ul,
-.entry-content ol,
+ol:not([class]),
 .sidebar-widgets ol {
   padding-left: 1em;
 }
@@ -196,12 +197,12 @@ b {
 }
 
 ::-moz-selection {
-  background-color: tomato;
+  background-color: #ffffff;
   color: black;
 }
 
 ::selection {
-  background-color: tomato;
+  background-color: #ffffff;
   color: black;
 }
 
@@ -221,7 +222,7 @@ b {
 }
 
 [class^="icon-"]:before, [class*=" icon-"]:before {
-  font-family: 'Audrey Icons';
+  font-family: "Audrey Icons";
   font-style: normal;
   font-weight: normal;
   speak: none;
@@ -379,7 +380,7 @@ b {
 /* '' */
 .slick-prev:before,
 .slick-next:before {
-  font-family: 'Audrey Icons';
+  font-family: "Audrey Icons";
   text-shadow: none;
 }
 
@@ -399,20 +400,13 @@ img {
   /* alt text */
 }
 
-img.alignright,
-figure.alignright {
-  margin: 1em 0 0 1em;
-}
-
-img.alignleft,
-figure.alignleft {
-  margin: 1em 1em 0 0;
-}
-
-img.aligncenter,
+img.alignright, img.alignleft, img.aligncenter,
+figure.alignright,
+figure.alignleft,
 figure.aligncenter {
   display: block;
-  margin: 1em auto;
+  float: none;
+  margin: 2rem auto;
 }
 
 img.alignfull,
@@ -468,16 +462,8 @@ figure.alignnone {
   width: 100%;
 }
 
-.entry-content p img.alignleft {
-  margin: 0 1em 1em 0;
-}
-
-.entry-content p img.alignright {
-  margin: 0 0 1em 1em;
-}
-
-.entry-content p img.aligncenter {
-  margin: 2em auto;
+.entry-content p img.alignleft, .entry-content p img.alignright, .entry-content p img.aligncenter {
+  margin: 2rem auto;
 }
 
 .wp-caption img {
@@ -497,13 +483,15 @@ article .gallery {
   display: flex;
   -ms-flex-wrap: wrap;
   flex-wrap: wrap;
-  margin-top: 1em;
+  margin-top: 3rem;
   padding: 0;
   list-style: none;
   /*for galleries as list elements */
 }
 
 article .gallery .gallery-item {
+  max-width: 50%;
+  max-width: calc(100% / 2);
   border: solid 2px transparent;
 }
 
@@ -513,31 +501,12 @@ article .gallery .gallery-item img {
   border: none;
 }
 
-article .gallery.gallery-size-thumbnail .gallery-item {
-  max-width: 12.5%;
-  max-width: calc(100% / 8);
-}
-
-article .gallery.gallery-size-large-thumbnail .gallery-item {
-  max-width: 20%;
-}
-
-article .gallery.gallery-size-x-large-thumbnail .gallery-item {
-  max-width: 25%;
-}
-
-article .gallery.gallery-size-medium .gallery-item,
-article .gallery.gallery-size-video .gallery-item {
-  max-width: 33.33325%;
-  max-width: calc(100% / 3);
-}
-
 .project-gallery ul {
   list-style: none;
   display: -ms-grid;
   display: grid;
-  -ms-grid-columns: (1fr)[4];
-      grid-template-columns: repeat(4, 1fr);
+  -ms-grid-columns: (1fr)[2];
+      grid-template-columns: repeat(2, 1fr);
   grid-gap: 0.5em 0.5em;
   padding: 0;
 }
@@ -548,17 +517,6 @@ article .gallery.gallery-size-video .gallery-item {
 
 .project-gallery ul li img {
   display: block;
-  -webkit-filter: grayscale(20%);
-          filter: grayscale(20%);
-  opacity: 0.9;
-  -webkit-transition: all .15s;
-  transition: all .15s;
-}
-
-.project-gallery ul li:hover img {
-  -webkit-filter: grayscale(0%);
-          filter: grayscale(0%);
-  opacity: 1;
 }
 
 .video-fix {
@@ -583,7 +541,7 @@ article .gallery.gallery-size-video .gallery-item {
 
 /* When CSS Grid is not supported */
 /* When CSS Flexbox is not supported */
-@media screen and (min-width: 37.5em) {
+@media screen and (min-width: 769px) {
   img.alignleft,
   figure.alignleft {
     float: left;
@@ -602,10 +560,39 @@ article .gallery.gallery-size-video .gallery-item {
     float: right;
     margin: 0 0 1em 1em;
   }
+  article .gallery.gallery-size-thumbnail .gallery-item {
+    max-width: 12.5%;
+    max-width: calc(100% / 8);
+  }
+  article .gallery.gallery-size-large-thumbnail .gallery-item {
+    max-width: 20%;
+  }
+  article .gallery.gallery-size-x-large-thumbnail .gallery-item,
+  article .gallery.gallery-size-medium .gallery-item,
+  article .gallery.gallery-size-video .gallery-item {
+    max-width: 25%;
+  }
+  .project-gallery ul {
+    -ms-grid-columns: (1fr)[4];
+        grid-template-columns: repeat(4, 1fr);
+  }
+  .project-gallery ul li img {
+    -webkit-filter: grayscale(20%);
+            filter: grayscale(20%);
+    opacity: 0.9;
+    -webkit-transition: all .15s;
+    transition: all .15s;
+  }
+  .project-gallery ul li:hover img {
+    -webkit-filter: grayscale(0%);
+            filter: grayscale(0%);
+    opacity: 1;
+  }
 }
 
 body {
-  font-size: 16px;
+  font-size: 17px;
+  line-height: 1.5;
   background: #1c1c24;
   color: #ffffff;
 }
@@ -616,5 +603,9 @@ h2 {
 }
 
 h3 {
-  font-size: 26px;
+  font-size: 22px;
+}
+
+h4 {
+  font-size: 19px;
 }

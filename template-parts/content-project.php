@@ -104,16 +104,27 @@ if ( ! $vimeo_data ) {
 		</div>
 		<?php if ( $vimeo_url ) : ?>
 		<div class="project-trailer-embed">
-			<?php echo sprintf( '<h3>%1s %2s</h3>', get_the_title(), esc_html__( 'Trailer', 'affp-theme' ) ); ?>
+			<?php echo sprintf( '<h2>%1s %2s</h2>', get_the_title(), esc_html__( 'Trailer', 'affp-theme' ) ); ?>
             <iframe src="https://player.vimeo.com/video/<?php echo $vimeo; ?>?color=ffffff&title=0&byline=0&portrait=0" width="1280" height="720" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 		</div>
 		<?php endif; ?>
 
 		<div class="clearfix video-fix"></div>
 
+		<?php if ( have_rows( 'project_additional_videos' ) ) : ?>
+			<div class="project-additional-videos">
+				<h2><?php _e( 'Additional Videos' ); ?></h2>
+				<ul>
+				<?php while ( have_rows( 'project_additional_videos' ) ) : the_row(); ?>
+					<li><a href="<?php esc_url( the_sub_field( 'project_addtional_vimeo_url' ) ); ?>" data-fancybox target="_blank" rel="nofollow"><?php the_sub_field( 'project_addtional_video_title' ); ?></a></li>
+				<?php endwhile; ?>
+				</ul>
+			</div>
+		<?php endif; ?>
+
 		<?php if ( $gallery ) : ?>
 		<div class="project-gallery" id="project-gallery-<?php echo get_the_ID(); ?>">
-			<?php echo sprintf( '<h3>%1s %2s</h3>', get_the_title(), esc_html__( 'Gallery', 'amcd-theme' ) ); ?>
+			<?php echo sprintf( '<h2>%1s %2s</h2>', get_the_title(), esc_html__( 'Gallery', 'amcd-theme' ) ); ?>
 			<ul class="project-gallery-list">
 			<?php foreach( $gallery as $image ) : ?>
 				<li>

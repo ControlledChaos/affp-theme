@@ -40,14 +40,14 @@ if ( $query->have_posts() ) : ?>
     $height   = $logo['sizes'][ $size . '-height' ];
 	?>
 	<div class="subsection">
-		<div id="press-<?php echo get_the_ID(); ?>" class="featured-press">
-			<div class="press-logo">
+		<div id="press-<?php echo get_the_ID(); ?>" class="featured-post featured-press">
+			<div class="featured-post-image press-logo">
 				<figure>
 					<img src="<?php echo esc_url( $thumb ); ?>" alt="<?php echo $outlet . __( ' logo', 'affp-theme' ); ?>" $width="<?php echo $width; ?>" height="<?php echo $height; ?>">
 					<figcaption class="screen-reader-text"><?php echo $outlet . __( ' logo', 'affp-theme' ); ?></figcaption>
 				</figure>
 			</div>
-			<div class="press-info">
+			<div class="featured-post-info press-info">
 				<p class="press-outlet"><?php echo $outlet; ?></p>
 				<h3><?php echo $article; ?></h3>
 				<label class="press-summary-label" for="article-<?php echo get_the_ID(); ?>"><?php _e( 'Article Summary:' ); ?></label>
@@ -55,7 +55,7 @@ if ( $query->have_posts() ) : ?>
 					<?php echo $summary; ?>
 				</div>
 				<?php echo sprintf(
-					'<p class="press-link"><a href="%1s" target="_blank" rel="nofollow">%2s <span class="icon-right"></span></a></p>',
+					'<p class="press-link"><a href="%1s" target="_blank" rel="nofollow"><span class="info-link-text">%2s</span> <span class="icon-right"></span></a></p>',
 					esc_url( $url ),
 					__( 'Read Article', 'affp-theme' )
 				); ?>

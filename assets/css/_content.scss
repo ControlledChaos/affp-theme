@@ -37,86 +37,133 @@
  * Posts and pages
  */
 .entry-content {
+	font-size: 1.7rem;
+	line-height: 1.5;
+}
 
-	.projects-grid {
-		display: grid;
-		grid-template-columns: repeat(6, 1fr);
-		grid-gap: 0.35em 0.35em;
-		max-width: 100vw;
-		margin: 2em 0 0;
-		padding: 0;
-		list-style: none;
+.posts-grid {
+	display: grid;
+	grid-template-columns: repeat(1, 1fr);
+	grid-gap: 0.35em 0.35em;
+	max-width: 100vw;
+	margin: 2em 0 0;
+	padding: 0;
+	list-style: none;
 
-		figure {
-			position: relative;
-			overflow: hidden;
+	figure {
+		position: relative;
+		overflow: hidden;
+
+		img {
+			display: block;
+			width: 100%;
+			height: auto;
+			max-width: 100%;
+			opacity: 0.85;
+			-webkit-transition: all .25s;
+			transition: all .25s;
+		}
+
+		figcaption {
+			position: absolute;
+			left: 0;
+			bottom: 0;
+			width: 100%;
 			height: 100%;
+			line-height: 1.2;
+			background: rgba(0,0,0,0.85);
+			color: $white;
+			opacity: 0;
+			-webkit-transition: all .25s;
+			transition: all .25s;
 
-			img {
-				display: block;
-				width: 100%;
-				height: auto;
-				max-width: 100%;
-				opacity: 0.85;
-				-webkit-transition: all .25s;
-				transition: all .25s;
-			}
-
-			figcaption {
+			.projects-grid-links {
 				position: absolute;
+				top: auto;
 				left: 0;
 				bottom: 0;
 				width: 100%;
-				height: 100%;
-				line-height: 1.2;
-				background: rgba(0,0,0,0.85);
-				color: $white;
-				opacity: 0;
-				-webkit-transition: all .25s;
-				transition: all .25s;
+				display: -webkit-box;
+				display: flex;
+				justify-content: space-around;
+				flex-wrap: wrap;
+				list-style: none;
+				margin-top: 1em;
+				padding: 0.5em 1em;
 
-				.projects-grid-links {
-					position: absolute;
-					left: 0;
-					bottom: 0;
-					width: 100%;
-					display: -webkit-box;
-					display: flex;
-					justify-content: space-around;
-					flex-wrap: wrap;
-					margin-top: 1em;
-					padding: 0.5em 1em;
-					-webkit-transition: all .15s;
-					transition: all .15s;
+				li {
+					display: inline;
+				}
 
-					a {
-						display: inline-block;
-						font-size: 1.125em;
-						text-decoration: none;
+				a {
+					display: inline-block;
+					font-size: 1.125em;
+					text-decoration: none;
+					color: $white;
+					color: rgba(255,255,255,0.65);
+
+					&:hover,
+					&:focus {
+						color: rgba(255,255,255,0.85);
 						color: $white;
-						color: rgba(255,255,255,0.65);
-
-						&:hover,
-						&:focus {
-							color: rgba(255,255,255,0.85);
-							color: $white;
-						}
 					}
 				}
 			}
+		}
 
-			&:hover,
-			&:focus {
+		h2,
+		h3 {
+			margin: 0;
+			padding: 0.5em 1rem;
+		}
 
-				img {
-					opacity: 1;
-				}
+		&:hover,
+		&:focus {
 
-				figcaption {
-					opacity: 1;
-				}
+			img {
+				opacity: 1;
+			}
+
+			figcaption {
+				opacity: 1;
 			}
 		}
+	}
+
+	&.press-grid {
+
+		figcaption {
+			display: -webkit-box;
+			display: flex;
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+			        flex-direction: column;
+			-webkit-box-pack: center;
+			        justify-content: center;
+		}
+
+		h3,
+		p {
+			font-size: 1.3rem;
+			text-transform: none;
+		}
+
+		p {
+			margin-top: 0.3em;
+			padding: 1rem;
+		}
+	}
+}
+
+.image-gallery-label {
+	font-family: $display_font;
+	font-size: 1.8rem;
+	font-weight: 400;
+	letter-spacing: 0.2rem;
+	text-transform: lowercase;
+
+	+ h1 {
+		margin-top: 0.25em;
 	}
 }
 
@@ -138,7 +185,8 @@
 .single-project-top,
 .single-press-top,
 .archive-project-list-view,
-.archive-press-list-view {
+.archive-press-list-view,
+.archive-gallery-list-view {
 	display: -webkit-box;
 	display: flex;
 	-webkit-box-orient: vertical;
@@ -166,6 +214,23 @@
 	}
 }
 
+.single-project h2 {
+	font-size: 2.2rem;
+	font-weight: 400;
+	letter-spacing: 0.15em;
+	text-transform: none;
+}
+
+.project-poster,
+.press-logo,
+.gallery-image {
+
+	img {
+		display: block;
+		width: 100%;
+	}
+}
+
 .archive-press-list-view {
 
 	.press-outlet {
@@ -188,6 +253,35 @@
 	margin-top: 2rem;
 }
 
+.project-additional-videos {
+	margin-top: 3rem;
+	padding-top: 2rem;
+	border-top: solid 1px rgba($color: $white, $alpha: 0.25);
+
+	ul {
+		list-style: none;
+		display: -webkit-box;
+		display: flex;
+		flex-wrap: wrap;
+		padding: 0;
+
+		li {
+			&:not(:last-of-type) {
+				margin-right: 1rem;
+				&:after {
+					content: '|';
+					display: inline-block;
+					margin-left: 1rem;
+				}
+			}
+		}
+	}
+}
+
+.project-gallery {
+	display: none;
+}
+
 .featured-slider {
 
 	h3 {
@@ -203,9 +297,18 @@
 	.slick-next:before {
 		font-size: 4rem;
 	}
+}
 
-	.project-gallery {
-		display: none;
+.project-link,
+.press-link,
+.gallery-link {
+	font-family: $display_font;
+	font-size: 1.7rem;
+	letter-spacing: 0.075em;
+	text-transform: lowercase;
+
+	a {
+		font-weight: 400;
 	}
 }
 
@@ -274,12 +377,24 @@
 	}
 }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (min-width: 480px) {
+
+	.posts-grid {
+		grid-template-columns: repeat(2, 1fr);
+	}
+}
+
+@media screen and (min-width: 769px) {
+
+	.posts-grid {
+		grid-template-columns: repeat(3, 1fr);
+	}
 
 	.single-project-top,
 	.single-press-top,
 	.archive-project-list-view,
-	.archive-press-list-view {
+	.archive-press-list-view,
+	.archive-gallery-list-view {
 		-webkit-box-orient: horizontal;
 		-webkit-box-direction: normal;
 				flex-direction: row;
@@ -300,40 +415,52 @@
 	}
 
 	.archive-project-list-view,
-	.archive-press-list-view {
+	.archive-press-list-view,
+	.archive-gallery-list-view {
 
 		h1,
 		h2 {
 			line-height: 1.2;
-			text-transform: none;
 		}
 	}
 
 	.project-poster,
-	.press-logo {
+	.press-logo,
+	.gallery-image {
 		width: 30%;
 		max-width: 240px;
 		margin-right: 2em;
 	}
 
 	.project-info,
-	.press-info {
+	.press-info,
+	.gallery-info {
 		width: 70%;
 	}
 
 	.archive-project-list-view,
-	.archive-press-list-view {
+	.archive-press-list-view,
+	.archive-gallery-list-view {
 
 		.project-poster,
-		.press-logo {
+		.press-logo,
+		.gallery-image {
 			width: auto;
 			max-width: 160px;
 		}
 
 		.project-info,
-		.press-info {
+		.press-info,
+		.gallery-info {
 			width: 100%;
 		}
+	}
+}
+
+@media screen and (min-width: 1024px) {
+
+	.posts-grid {
+		grid-template-columns: repeat(6, 1fr);
 	}
 }
 

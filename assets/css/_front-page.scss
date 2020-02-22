@@ -2,6 +2,36 @@
  * Front page
  */
 
+@-webkit-keyframes ken-burns {
+	from {
+		-webkit-transform: scale(1.2, 1.2);
+		        transform: scale(1.2, 1.2);
+		-webkit-transform-origin: 50% 0%;
+		        transform-origin: 50% 0%;
+	}
+	to {
+		-webkit-transform: scale(1, 1);
+		        transform: scale(1, 1);
+		-webkit-transform-origin: 50% 50%;
+		        transform-origin: 50% 50%;
+	}
+}
+
+@keyframes ken-burns {
+	from {
+		-webkit-transform: scale(1.2, 1.2);
+		        transform: scale(1.2, 1.2);
+		-webkit-transform-origin: 50% 0%;
+		        transform-origin: 50% 0%;
+	}
+	to {
+		-webkit-transform: scale(1, 1);
+		        transform: scale(1, 1);
+		-webkit-transform-origin: 50% 50%;
+		        transform-origin: 50% 50%;
+	}
+}
+
 .front-page {
 	position: relative;
 }
@@ -28,10 +58,13 @@
 
 		.fp-scroller {
 			min-height: 100vh;
-			min-height: calc(100vh - 6rem);
+			display: -webkit-box;
 			display: flex;
-			flex-direction: column;
-			justify-content: center;
+			-webkit-box-orient: vertical;
+			-webkit-box-direction: normal;
+			        flex-direction: column;
+			-webkit-box-pack: center;
+			        justify-content: center;
 		}
 
 		.wrapper {
@@ -48,10 +81,12 @@
 
 		.entry-content {
 			opacity: 0;
+			-webkit-transition: opacity 1.15s;
 			transition: opacity 1.15s;
 
 			// The FullPageJS script has a delay in adding the fp-completely class.
-			transition-delay: 0;
+			-webkit-transition-delay: 0;
+			        transition-delay: 0;
 		}
 
 		h2 {
@@ -105,13 +140,6 @@
 
 		.avatar {
 			width: 100%;
-			max-width: 320px;
-			max-width: 14vw;
-			min-width: 240px;
-			margin-top: 2em;
-			-webkit-clip-path: circle();
-			        clip-path: circle();
- 			shape-outside: circle();
 		}
 
 		&.fp-completely,
@@ -120,6 +148,11 @@
 			.entry-content {
 				opacity: 1;
 			}
+		}
+
+		.avatar {
+			margin-top: 6rem;
+			width: 240px;
 		}
 	}
 }
@@ -159,8 +192,6 @@
 	.site-header {
 		position: relative;
 		display: -webkit-box;
-		display: -moz-box;
-		display: -ms-flexbox;
 		display: flex;
 		-webkit-box-orient: vertical;
 		-webkit-box-direction: normal;
@@ -172,8 +203,10 @@
 		width: 100%;
 		padding: 0 2rem;
 		opacity: 0;
-		transition: opacity 1.5s;
-		transition-delay: 0.175s;
+		-webkit-transition: opacity 1.75s;
+		transition: opacity 1.75s;
+		-webkit-transition-delay: 0.175s;
+		        transition-delay: 0.175s;
 	}
 
 	&.fp-completely,
@@ -220,6 +253,23 @@
 	ul {
 		margin: 0 !important;
 
+		.slick-slide {
+
+			-webkit-transform: scale(1, 1);
+				transform: scale(1, 1);
+			-webkit-transform-origin: 50% 0%;
+				transform-origin: 50% 0%;
+
+			&.slick-active {
+				/*
+				 * Match timing to autoplaySpeed option in intro_slides function,
+				 * class-fullpage-scripts.php
+				 */
+				-webkit-animation: ken-burns 7200ms 1 ease-in-out;
+				animation: ken-burns 7200ms 1 ease-in-out;
+			}
+		}
+
 		li {
 			bottom: 0;
 			right: 0;
@@ -227,8 +277,6 @@
 			background-position: center center;
 			background-repeat: no-repeat;
 			background-size: cover;
-			-webkit-filter: blur(0px);
-					filter: blur(0px);
 
 			&:before {
 				content: '';
@@ -261,9 +309,8 @@
 
 .featured-project,
 .featured-press {
+	position: relative;
 	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
 	display: flex;
 	width: 100%;
 	height: 100%;
@@ -288,8 +335,6 @@
 			list-style: none;
 			width: 100%;
 			display: -webkit-box;
-			display: -moz-box;
-			display: -ms-flexbox;
 			display: flex;
 			padding: 0;
 
@@ -329,16 +374,25 @@
 			}
 		}
 	}
-
-	.press-link {
-		font-family: $display_font;
-		font-size: 1.1em;
-		font-weight: 500;
-		letter-spacing: 0.05em;
-	}
 }
 
-@media screen and (min-width: 37.5em) {
+@media screen and (min-width: 769px) {
+
+	.front-page-main {
+
+		.front-page-section {
+
+			.avatar {
+				max-width: 320px;
+				max-width: 14vw;
+				min-width: 240px;
+				margin-top: 2em;
+				-webkit-clip-path: circle();
+						clip-path: circle();
+				 shape-outside: circle();
+			}
+		}
+	}
 
 	.intro-header-text {
 		padding: 0 8vw;
@@ -349,6 +403,126 @@
 
 		&.intro-header-text-wide {
 			display: block;
+		}
+	}
+}
+
+@media screen and (max-width: 640px) {
+
+	.front-page-main {
+
+		.featured-slider {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			grid-gap: 0.5em 0.5em;
+
+			.subsection {
+				padding: 0 !important;
+			}
+		}
+	}
+
+	.featured-post {
+		display: block;
+		position: relative;
+		width: 100%;
+		height: 100%;
+
+		.featured-post-image {
+			width: 100%;
+			max-width: 100%;
+			margin: 0;
+		}
+
+		.featured-post-info {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			padding: 3rem;
+			background: rgba(0,0,0,0.85);
+			opacity: 0;
+			transition: opacity .25s;
+
+			h3 {
+				margin: 0;
+				font-size: 1.9rem;
+				text-transform: none;
+				line-height: 1.2;
+			}
+
+			h4,
+			.project-description,
+			.info-link-text,
+			.press-outlet,
+			.press-summary-label,
+			.press-summary {
+				border: 0;
+				clip: rect(1px, 1px, 1px, 1px);
+				-webkit-clip-path: inset(50%);
+						clip-path: inset(50%);
+				height: 1px;
+				margin: -1px;
+				overflow: hidden;
+				padding: 0;
+				position: absolute !important;
+				width: 1px;
+				word-wrap: normal !important;
+			}
+
+			.icon-right {
+				display: none;
+			}
+
+			ul {
+				list-style: none;
+				width: 100%;
+				display: -webkit-box;
+				display: flex;
+
+				li {
+					display: inline;
+					margin: 0;
+
+					&:not(:last-of-type) {
+						margin-right: 10%;
+					}
+
+					a {
+						display: inline-block;
+						font-size: 1.825rem;
+					}
+				}
+			}
+		}
+
+		&.featured-press {
+
+			.featured-post-info {
+
+				h3 {
+					font-size: 1.3rem;
+				}
+			}
+
+			a {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				display: block;
+			}
+		}
+
+		&:hover,
+		&:focus {
+
+			.project-info,
+			.press-info {
+				opacity: 1;
+			}
 		}
 	}
 }

@@ -32,9 +32,9 @@ class FullPage_Scripts {
 	public function __construct() {
 
 		add_action( 'affp_scripts', [ $this, 'full_page' ] );
-		add_action( 'affp_scripts', [ $this, 'intro_slides' ] );
 
 		// Disabled. Instantiating sliders on FullPage afterRender event.
+		// add_action( 'affp_scripts', [ $this, 'intro_slides' ] );
 		// add_action( 'affp_scripts', [ $this, 'featured_slides' ] );
 
 	}
@@ -50,6 +50,60 @@ class FullPage_Scripts {
 	 */
 	public function full_page() {
 
+		/**
+		 * Navigation between sections.
+		 *
+		 * Uses the "slug" subfield from the ACF flexible content fields.
+		 * The intro slides slug is static as "splash".
+		 */
+
+		// Intro slides section slug.
+		$menu = "'splash',";
+
+		// Loop through flexible content fields for the "slug" subfield.
+		if ( have_rows( 'front_page_sections' ) ) : while ( have_rows( 'front_page_sections' ) ) : the_row();
+
+		// Get the "slug" subfield.
+		$slug = wp_strip_all_tags( get_sub_field( 'fp_section_slug' ) );
+
+		// Eliminate any spaces entered into the field.
+		$anchor = str_replace( ' ', '', strtolower( $slug ) );
+		$menu  .=  "'" . $anchor . "',";
+
+		// End loop.
+		endwhile; endif;
+
+		/**
+		 * Add .section-viewed class by slug/class when leaving a section.
+		 *
+		 * This class is used to stop various transforms, transitions, etc
+		 * when the section is first viewed.
+		 */
+		$viewed = '$( ".splash" ).addClass( "section-viewed" );' . "\r";
+
+		// Loop through flexible content fields for the "slug" subfield.
+		if ( have_rows( 'front_page_sections' ) ) : while ( have_rows( 'front_page_sections' ) ) : the_row();
+
+		// Get the "slug" subfield.
+		$slug = wp_strip_all_tags( get_sub_field( 'fp_section_slug' ) );
+
+		// Eliminate any spaces entered into the field.
+		$section = str_replace( ' ', '', strtolower( $slug ) );
+		$viewed .= "if (origin.anchor == '" . $section . "') { $('." . $section . "').addClass('section-viewed'); }" . "\r";
+		endwhile; endif;
+
+		// Slick slider arrows.
+		$slider_prev = sprintf(
+			'<button class="slick slick-next tooltip" title="%1s"><span class="screen-reader-text">%2s</span></button>',
+			__( 'Next', 'affp-theme' ),
+			__( 'Next', 'affp-theme' )
+		);
+		$slider_next = sprintf(
+			'<button class="slick slick-prev tooltip" title="%1s"><span class="screen-reader-text">%2s</span></button>',
+			__( 'Previous', 'affp-theme' ),
+			__( 'Previous', 'affp-theme' )
+		);
+
 		?>
 		<script>
 		// Load FullPage JS scripts.
@@ -60,7 +114,7 @@ class FullPage_Scripts {
 
 			// Instantiate FullPage JS and add options.
 			$( '#front-page-sections' ).fullpage({
-				anchors         : [ 'splash',<?php if ( have_rows( 'front_page_sections' ) ) : while ( have_rows( 'front_page_sections' ) ) : the_row(); $slug = get_sub_field( 'fp_section_slug' ); $anchor = str_replace( ' ', '', strtolower( $slug ) ); echo "'" . $anchor . "',"; endwhile; endif; ?> ],
+				anchors         : [ <?php echo $menu; ?> ],
 				lockAnchors      : true,
 				menu             : '#site-navigation',
 				navigation       : false,
@@ -81,13 +135,28 @@ class FullPage_Scripts {
 					$( 'html' ).addClass( 'site-loaded' );
 					$( '.loader' ).fadeOut( 350 );
 
+					// Instantiate Slick slider for the intro slideshow.
+					$( '.intro-slides' ).slick({
+						arrows         : false,
+						dots           : false,
+						slidesToScroll : 1,
+						autoplay       : true,
+						autoplaySpeed  : 7200, // Match CSS animation timing on .slick-slide.active, _front-page.scss.
+						infinite       : true,
+						adaptiveHeight : false,
+						speed          : 1800,
+						pauseOnHover   : false,
+						fade           : true,
+						cssEase        : 'ease-in-out'
+					});
+
 					// Instantiate Slick slider for the featured projects carousel.
 					$( '.featured-projects-slider, .featured-press-slider' ).slick({
 						arrows         : true,
 						dots           : false,
 						slidesToShow   : 1,
 						slidesToScroll : 1,
-						swipeToSlide   : true,
+						// swipeToSlide   : true,
 						draggable      : true,
 						touchThreshold : 5,
 						autoplay       : false,
@@ -98,8 +167,16 @@ class FullPage_Scripts {
 						fade           : false,
 						cssEase        : 'ease-in-out',
 						zIndex         : 3500,
-						nextArrow      : '<button class="slick slick-next tooltip" title="<?php _e( 'Next Project', 'affp-theme' ); ?>"><span class="screen-reader-text"><?php _e( 'Next Project', 'affp-theme' ); ?></span></button>',
-						prevArrow      : '<button class="slick slick-prev tooltip" title="<?php _e( 'Previous Project', 'affp-theme' ); ?>"><span class="screen-reader-text"><?php _e( 'Previous Project', 'affp-theme' ); ?></span></button>'
+						nextArrow      : '<?php echo $slider_next; ?>',
+						prevArrow      : '<?php echo $slider_prev; ?>',
+						responsive     : [
+
+							// Destroy slick at 640px and less.
+							{
+								breakpoint : 640,
+								settings   : 'unslick'
+							}
+						]
 					});
 
 					// Add the .subsection-viewed class upon leaving a slide/section.
@@ -119,12 +196,11 @@ class FullPage_Scripts {
 
 					/**
 					 * Add .section-viewed class by slug/class when leaving a section.
+					 *
 					 * This class is used to stop various transforms, transitions, etc
 					 * when the section is first viewed.
 					 */
-					$( '.splash' ).addClass( 'section-viewed' );
-					<?php if ( have_rows( 'front_page_sections' ) ) : while ( have_rows( 'front_page_sections' ) ) : the_row(); $slug = get_sub_field( 'fp_section_slug' ); $section = str_replace( ' ', '', strtolower( $slug ) );
-					echo "if (origin.anchor == '" . $section . "') { $('." . $section . "').addClass('section-viewed'); }"; endwhile; endif; ?>
+					<?php echo $viewed; ?>
 				}
 			});
 
@@ -165,7 +241,7 @@ class FullPage_Scripts {
 			dots           : false,
 			slidesToScroll : 1,
 			autoplay       : true,
-			autoplaySpeed  : 4200,
+			autoplaySpeed  : 8000, // Match CSS animation timing on .slick-slide.active, _front-page.scss.
 			infinite       : true,
 			adaptiveHeight : false,
 			speed          : 1200,

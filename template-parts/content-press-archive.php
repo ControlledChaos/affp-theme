@@ -17,7 +17,7 @@ $summary  = get_field( 'press_article_summary' );
 if ( has_image_size( 'x-large-thumbnail' ) ) {
 	$size = 'x-large-thumbnail';
 } else {
-	$size = 'medium';
+	$size = 'large';
 }
 $logo_url = $logo['url'];
 $title    = $logo['title'];

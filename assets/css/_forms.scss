@@ -98,7 +98,18 @@ input[type="image"] {
 	&.menu-toggle {
 		background: none;
 		border: none;
+		font-size: 2rem;
+		letter-spacing: 0.125em;
 		color: inherit;
+
+		span {
+			display: inline-block;
+
+			&.icon-menu {
+				margin-right: 0.5em;
+				color: rgba($color: $white, $alpha: 0.85);
+			}
+		}
 
 		svg {
 			width: 1rem;

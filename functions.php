@@ -260,43 +260,43 @@ final class Functions {
 		$color_args = [
 			[
 				'name'  => __( 'Text', 'affp-theme' ),
-				'slug'  => 'bst-text',
+				'slug'  => 'affp-text',
 				'color' => '#333333',
 			],
 			[
 				'name'  => __( 'Light Gray', 'affp-theme' ),
-				'slug'  => 'bst-light-gray',
+				'slug'  => 'affp-light-gray',
 				'color' => '#888888',
 			],
 			[
 				'name'  => __( 'Pale Gray', 'affp-theme' ),
-				'slug'  => 'bst-pale-gray',
+				'slug'  => 'affp-pale-gray',
 				'color' => '#cccccc',
 			],
 			[
 				'name'  => __( 'White', 'affp-theme' ),
-				'slug'  => 'bst-white',
+				'slug'  => 'affp-white',
 				'color' => '#ffffff',
 			],
 			[
 				'name'  => __( 'Error Red', 'affp-theme' ),
-				'slug'  => 'bst-error',
+				'slug'  => 'affp-error',
 				'color' => '#dc3232',
 			],
 			[
 				'name'  => __( 'Warning Yellow', 'affp-theme' ),
-				'slug'  => 'bst-warning',
+				'slug'  => 'affp-warning',
 				'color' => '#ffb900',
 			],
 			[
 				'name'  => __( 'Success Green', 'affp-theme' ),
-				'slug'  => 'bst-success',
+				'slug'  => 'affp-success',
 				'color' => '#46b450',
 			]
 		];
 
 		// Apply a filter to editor arguments.
-		$colors = apply_filters( 'bst_editor_colors', $color_args );
+		$colors = apply_filters( 'affp_editor_colors', $color_args );
 
 		// Add theme color support.
 		add_theme_support( 'editor-color-palette', $colors );
@@ -384,7 +384,7 @@ final class Functions {
 		 *
 		 * @since 1.0.0
 		 */
-		$bs_content_width = apply_filters( 'bst_content_width', 1280 );
+		$bs_content_width = apply_filters( 'affp_content_width', 1280 );
 
 		if ( ! isset( $content_width ) ) {
 			$content_width = $bs_content_width;
@@ -401,6 +401,7 @@ final class Functions {
 		 */
 		register_nav_menus( [
 			'main'   => __( 'Main Menu', 'affp-theme' ),
+			'more'   => __( 'Front Page More Menu', 'affp-theme' ),
 			'footer' => __( 'Footer Menu', 'affp-theme' ),
 			'social' => __( 'Social Menu', 'affp-theme' )
 		] );
@@ -410,7 +411,7 @@ final class Functions {
 		 *
 		 * @since 1.0.0
 		 */
-		add_editor_style( '/assets/css/editor.min.css', [ 'bst-admin' ], '', 'screen' );
+		add_editor_style( '/assets/css/editor.min.css', [ 'affp-admin' ], '', 'screen' );
 
 	}
 
@@ -471,13 +472,24 @@ final class Functions {
 		// Add customizer widget refresh support.
 		add_theme_support( 'customize-selective-refresh-widgets' );
 
-		// Register sidebar widget area.
+		// Register footer widget area.
 		register_sidebar( [
-			'name'          => esc_html__( 'Sidebar', 'affp-theme' ),
-			'id'            => 'sidebar',
+			'name'          => esc_html__( 'Footer', 'affp-theme' ),
+			'id'            => 'footer',
 			'description'   => esc_html__( 'Add widgets here.', 'affp-theme' ),
 			'before_widget' => '<section id="%1$s" class="widget %2$s">',
 			'after_widget'  => '</section>',
+			'before_title'  => '<h3 class="widget-title">',
+			'after_title'   => '</h3>',
+		] );
+
+		// Register 404 page widget area.
+		register_sidebar( [
+			'name'          => esc_html__( '404 Page', 'affp-theme' ),
+			'id'            => 'error-page',
+			'description'   => esc_html__( 'Display widgets on the 404 error page, giving visitors options when a page is not found.', 'affp-theme' ),
+			'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</aside>',
 			'before_title'  => '<h3 class="widget-title">',
 			'after_title'   => '</h3>',
 		] );
@@ -496,7 +508,7 @@ final class Functions {
 		$disable = add_theme_support( 'disable-custom-colors', [] );
 
 		// Apply a filter for conditionally disabling the picker.
-		$custom_colors = apply_filters( 'bst_editor_custom_colors', '__return_false' );
+		$custom_colors = apply_filters( 'affp_editor_custom_colors', '__return_false' );
 
 		return $custom_colors;
 
@@ -560,17 +572,6 @@ final class Functions {
 	 * @return void
 	 */
 	public function footer_scripts() {
-
-		// Fancybox spinner template.
-		$spinner = sprintf(
-			'<div class="loader">
-				<div class="spinner"></div>
-				<div class="loading">
-					<span class="screen-reader-text">%1s</span>
-				</div>
-			</div>',
-			__( 'Loading image', 'affp-theme' )
-		);
 
 		?>
 		<script>
@@ -675,6 +676,11 @@ final class Functions {
 		 */
 		wp_enqueue_style( 'affp-theme', get_theme_file_uri( '/assets/css/style.min.css' ), [], '', 'all' );
 
+		// Layout for right-to-left languages.
+		if ( is_rtl() ) {
+			wp_enqueue_style( 'affp-rtl', get_theme_file_uri( '/assets/css/rtl.min.css' ), [], '', 'all' );
+		}
+
 		// Google fonts.
 		wp_enqueue_style( 'affp-google-fonts', get_theme_file_uri( 'https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i&display=swap' ), [ 'affp-theme' ], '', 'all' );
 
@@ -747,7 +753,7 @@ final class Functions {
 		require get_theme_file_path( '/includes/template-functions.php' );
 		require get_theme_file_path( '/includes/template-tags.php' );
 		require get_theme_file_path( '/includes/customizer.php' );
-		// require get_parent_theme_file_path( '/includes/register-acf-fields.php' );
+		require get_parent_theme_file_path( '/includes/class-fullpage-fields.php' );
 
 	}
 
