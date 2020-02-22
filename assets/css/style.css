@@ -1405,7 +1405,7 @@ body:not(.fp-viewing-splash) .navbar {
     -webkit-transition: all .25s;
     transition: all .25s;
   }
-  .navbar .main-navigation ul li:hover:before, .navbar .main-navigation ul li:focus:before, .navbar .main-navigation ul li.current-menu-item:before {
+  .navbar .main-navigation ul li:not(.more-menu-base-item):not(.menu-item-has-children):hover:before, .navbar .main-navigation ul li:not(.more-menu-base-item):not(.menu-item-has-children):focus:before, .navbar .main-navigation ul li.active:before, .navbar .main-navigation ul li.current-menu-item:before {
     -webkit-transform: scale(1);
             transform: scale(1);
   }

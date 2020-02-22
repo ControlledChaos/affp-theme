@@ -212,8 +212,9 @@ body:not(.fp-viewing-splash) .navbar {
 						transition: all .25s;
 					}
 
-					&:hover,
-					&:focus,
+					&:not(.more-menu-base-item):not(.menu-item-has-children):hover,
+					&:not(.more-menu-base-item):not(.menu-item-has-children):focus,
+					&.active,
 					&.current-menu-item {
 
 						&:before {

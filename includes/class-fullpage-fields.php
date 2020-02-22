@@ -221,7 +221,7 @@ class FullPage_Fields {
 										'label'             => __( 'Section Slug', 'af-plugin' ),
 										'name'              => 'fp_section_slug',
 										'type'              => 'text',
-										'instructions'      => __( 'Lowercase. Used for scrolling and for the section hashtag in the URL.', 'af-plugin' ),
+										'instructions'      => __( 'Lowercase. Used for scrolling and for the navigation between sections, in the top menu.', 'af-plugin' ),
 										'required'          => 1,
 										'conditional_logic' => 0,
 										'wrapper'           => [
@@ -371,7 +371,7 @@ class FullPage_Fields {
 										'label'             => __( 'Section Slug', 'af-plugin' ),
 										'name'              => 'fp_section_slug',
 										'type'              => 'text',
-										'instructions'      => __( 'Lowercase. Used for scrolling and for the section hashtag in the URL.', 'af-plugin' ),
+										'instructions'      => __( 'Lowercase. Used for scrolling and for the navigation between sections, in the top menu.', 'af-plugin' ),
 										'required'          => 1,
 										'conditional_logic' => 0,
 										'wrapper'           => [
@@ -407,6 +407,7 @@ class FullPage_Fields {
 										'layout'            => 'horizontal',
 										'return_format'     => 'value',
 									],
+									/*
 									[
 										'key'               => 'field_5e45a37d7c48b',
 										'label'             => __( 'Projects', 'af-plugin' ),
@@ -450,6 +451,7 @@ class FullPage_Fields {
 											],
 										],
 									],
+									*/
 									[
 										'key'               => 'field_5e46ded185ad3',
 										'label'             => __( 'Section Link', 'af-plugin' ),
@@ -567,7 +569,7 @@ class FullPage_Fields {
 										'label'             => __( 'Section Slug', 'af-plugin' ),
 										'name'              => 'fp_section_slug',
 										'type'              => 'text',
-										'instructions'      => __( 'Lowercase. Used for scrolling and for the section hashtag in the URL.', 'af-plugin' ),
+										'instructions'      => __( 'Lowercase. Used for scrolling and for the navigation between sections, in the top menu.', 'af-plugin' ),
 										'required'          => 1,
 										'conditional_logic' => 0,
 										'wrapper'           => [
@@ -763,7 +765,7 @@ class FullPage_Fields {
 										'label'             => __( 'Section Slug', 'af-plugin' ),
 										'name'              => 'fp_section_slug',
 										'type'              => 'text',
-										'instructions'      => __( 'Lowercase. Used for scrolling and for the section hashtag in the URL.', 'af-plugin' ),
+										'instructions'      => __( 'Lowercase. Used for scrolling and for the navigation between sections, in the top menu.', 'af-plugin' ),
 										'required'          => 1,
 										'conditional_logic' => 0,
 										'wrapper'           => [
