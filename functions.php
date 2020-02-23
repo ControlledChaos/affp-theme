@@ -630,6 +630,56 @@ final class Functions {
 
 			// Unwrap Contact Form 7 fields.
 			$( '.wpcf7-form input, .wpcf7-form textarea, .wpcf7-form select' ).unwrap();
+
+			/**
+			 * Toggle archive grid/list views
+			 */
+			<?php if ( is_post_type_archive( [ 'project', 'press' ] ) ) : ?>
+
+			var $list_view = $( '#list-view-list' );
+			var $grid_view = $( '#list-view-grid' );
+			var $wrapper   = $( 'body' );
+
+			// Check local storage and set view.
+			if ( localStorage.view ) {
+				$wrapper.addClass( localStorage.view );
+			} else {
+				$wrapper.addClass( 'posts-list-view' );
+			}
+
+			if ( localStorage.list_button ) {
+				$list_view.addClass( localStorage.list_button );
+				$grid_view.removeClass( 'list-view-on' );
+			} else {
+				$list_view.addClass( 'list-view-on' );
+			}
+
+			if ( localStorage.grid_button ) {
+				$grid_view.addClass( localStorage.grid_button );
+				$list_view.removeClass( 'list-view-on' );
+			} else {
+				$grid_view.removeClass( 'list-view-on' );
+			}
+
+			$list_view.click( function() {
+				$wrapper.removeClass( 'posts-grid-view' ).addClass( 'posts-list-view' );
+				$grid_view.removeClass( 'list-view-on' );
+				$list_view.addClass( 'list-view-on' );
+				localStorage.view = 'posts-list-view';
+				localStorage.list_button = 'list-view-on';
+				localStorage.grid_button = '';
+			});
+
+			$grid_view.click( function() {
+				$wrapper.removeClass( 'posts-list-view' ).addClass( 'posts-grid-view' );
+				$list_view.removeClass( 'list-view-on' );
+				$grid_view.addClass( 'list-view-on' );
+				localStorage.view = 'posts-grid-view';
+				localStorage.grid_button = 'list-view-on';
+				localStorage.list_button = '';
+			});
+
+			<?php endif; ?>
 		});
 		</script>
 		<?php if ( ! is_page_template( 'page-templates/front-page-sections.php' ) ) : ?>

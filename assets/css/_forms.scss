@@ -1,10 +1,44 @@
 /**
  * Forms
  */
+
+// Undo styles from _reset.scss
+input,
+textarea,
+select,
+button {
+	border: none;
+}
+
+// Start theme styles.
 form {
 
 	* + * {
 		margin-top: 1em;
+	}
+
+	input,
+	textarea,
+	select,
+	button {
+		width: 100%;
+		max-width: 640px;
+		padding: 1rem;
+		font: inherit;
+		background: rgba($color: $white, $alpha: 0.025);
+		border: solid 1px rgba($color: $white, $alpha: 0.25);
+
+		&:focus {
+			border-color: rgba($color: $white, $alpha: 0.5);
+		}
+	}
+
+	button:disabled,
+	button[disabled],
+	input:disabled,
+	input[disabled] {
+		opacity: 0.5;
+		cursor: not-allowed !important;
 	}
 
 	label {
@@ -24,22 +58,6 @@ fieldset {
 
 legend {
 	padding: 0 0.5em;
-}
-
-input,
-textarea,
-select,
-button {
-	width: 100%;
-	max-width: 640px;
-	padding: 1rem;
-	font: inherit;
-	background: rgba($color: $white, $alpha: 0.025);
-	border: solid 1px rgba($color: $white, $alpha: 0.25);
-
-	&:focus {
-		border-color: rgba($color: $white, $alpha: 0.5);
-	}
 }
 
 label + input:not([type="checkbox"]):not([type="radio"]),
@@ -69,7 +87,7 @@ input[type="checkbox"] {
 	cursor: pointer;
 }
 
-button:not(.fancybox-button):not(.slick),
+form button,
 button[type="submit"],
 input[type="submit"],
 input[type="button"],
@@ -94,29 +112,6 @@ input[type="image"] {
 	&:focus {
 		background: rgba($color: $white, $alpha: 0.25);
 	}
-
-	&.menu-toggle {
-		background: none;
-		border: none;
-		font-size: 2rem;
-		letter-spacing: 0.125em;
-		color: inherit;
-
-		span {
-			display: inline-block;
-
-			&.icon-menu {
-				margin-right: 0.5em;
-				color: rgba($color: $white, $alpha: 0.85);
-			}
-		}
-
-		svg {
-			width: 1rem;
-			height: 1rem;
-			fill: currentColor;
-		}
-	}
 }
 
 input[type="number"] {
@@ -130,14 +125,6 @@ input[type="range"] {
 }
 
 input[type="date"] {}
-
-button:disabled,
-button[disabled],
-input:disabled,
-input[disabled] {
-	opacity: 0.5;
-	cursor: not-allowed !important;
-}
 
 textarea {
 	min-height: 200px;

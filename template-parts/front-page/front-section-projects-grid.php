@@ -42,7 +42,7 @@ if ( $query->have_posts() ) : ?>
 				<img src="<?php echo esc_url( $thumb ); ?>" alt="<?php echo get_the_title() . __( ' poster', 'affp-theme' ); ?>">
 				<figcaption>
 					<h3><?php the_title(); ?></h3>
-					<ul class="projects-grid-links">
+					<ul class="projects-links projects-grid-links">
 						<?php if ( $vimeo_url ) : ?>
 						<li><a class="tooltip" href="<?php echo esc_url( $vimeo_url ); ?>" title="<?php _e( 'Project trailer' ); ?>" data-fancybox target="_blank" rel="nofollow"><span class="icon-video"></span> <span class="screen-reader-text"><?php _e( 'Trailer', 'affp-theme' ); ?></span></a></li>
 						<?php endif; ?>

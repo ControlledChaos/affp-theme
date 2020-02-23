@@ -15,8 +15,23 @@ if ( $site_description || is_customize_preview() ) {
 	$site_description = __( 'Costume Design', 'affp-theme' );
 }
 
+/**
+ * Add archive view class
+ *
+ * This is used to toggle the list and grid views of some
+ * post type archives. Default button is list view.
+ *
+ * @see archive.php
+ * @see functions.php/footer_scripts
+ */
+if ( is_archive() ) {
+	$body_class = 'posts-list-view';
+} else {
+	$body_class = null;
+}
+
 ?>
-<body <?php body_class(); ?>>
+<body <?php body_class( $body_class ); ?>>
 <?php AFFP_Theme\Tags\body_open(); ?>
 <?php AFFP_Theme\Tags\before_page(); ?>
 	<div class="loader">
