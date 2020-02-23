@@ -48,6 +48,11 @@ body {
 	}
 }
 
+hr {
+	margin: 3rem 0;
+	border-top: solid 1px rgba($color: $white, $alpha: 0.25);
+}
+
 @-webkit-keyframes spinner {
 	from {-webkit-transform: rotate(0deg);transform: rotate(0deg);}
 	to {-webkit-transform: rotate(359deg);transform: rotate(359deg);}
