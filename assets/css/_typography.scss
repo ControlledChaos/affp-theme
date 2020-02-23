@@ -40,37 +40,6 @@ body {
 	font-weight: 300;
 	line-height: 1.4;
 	letter-spacing: 0.0425em;
-	color: $text;
-
-	&.dark-mode {
-		background: $dark;
-		color: $white;
-
-		h1,
-		h2,
-		h3,
-		h4,
-		h5,
-		h6,
-		p,
-		ul,
-		ol,
-		li,
-		a,
-		a:visited {
-			color: $white;
-		}
-
-		#wpadminbar,
-		#wpadminbar .ab-top-menu > li.hover > .ab-item,
-		#wpadminbar.nojq .quicklinks .ab-top-menu > li > .ab-item:focus,
-		#wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
-		#wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus,
-		#wpadminbar .menupop .ab-sub-wrapper,
-		#wpadminbar .shortlink-input {
-			background: $dark_gray;
-		}
-	}
 }
 
 .serif {

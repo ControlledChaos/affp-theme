@@ -63,37 +63,6 @@ body {
   font-weight: 300;
   line-height: 1.4;
   letter-spacing: 0.0425em;
-  color: #333333;
-}
-
-body.dark-mode {
-  background: #1c1c24;
-  color: #ffffff;
-}
-
-body.dark-mode h1,
-body.dark-mode h2,
-body.dark-mode h3,
-body.dark-mode h4,
-body.dark-mode h5,
-body.dark-mode h6,
-body.dark-mode p,
-body.dark-mode ul,
-body.dark-mode ol,
-body.dark-mode li,
-body.dark-mode a,
-body.dark-mode a:visited {
-  color: #ffffff;
-}
-
-body.dark-mode #wpadminbar,
-body.dark-mode #wpadminbar .ab-top-menu > li.hover > .ab-item,
-body.dark-mode #wpadminbar.nojq .quicklinks .ab-top-menu > li > .ab-item:focus,
-body.dark-mode #wpadminbar:not(.mobile) .ab-top-menu > li:hover > .ab-item,
-body.dark-mode #wpadminbar:not(.mobile) .ab-top-menu > li > .ab-item:focus,
-body.dark-mode #wpadminbar .menupop .ab-sub-wrapper,
-body.dark-mode #wpadminbar .shortlink-input {
-  background: #333333;
 }
 
 .serif {

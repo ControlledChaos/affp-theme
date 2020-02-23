@@ -577,19 +577,7 @@ final class Functions {
 		<script>
 		jQuery(document).ready( function($) {
 
-			// Toggle the side menu.
-			$( '#side-menu-toggle' ).click( function() {
-				$( '.secondary-nav' ).addClass( 'open' );
-				$( '#menu-open' ).attr( 'aria-expanded', function ( i, attr ) {
-					return attr == 'true' ? 'false' : 'true'
-				});
-				$( '.body-overlay' ).addClass( 'menu-open' );
-			});
-			$( '#menu-close' ).click( function() {
-				$( '.secondary-nav' ).removeClass( 'open' );
-				$( '.body-overlay' ).removeClass( 'menu-open' );
-			});
-
+			// Add Fancybox and options.
 			$( '[data-fancybox]' ).fancybox({
 				infobar : false,
 				buttons : [
@@ -714,9 +702,6 @@ final class Functions {
 	 */
 	public function frontend_styles() {
 
-		// Google fonts.
-		// wp_enqueue_style( 'affp-theme-google-fonts', 'add-url-here', [], '', 'screen' );
-
 		/**
 		 * Theme sylesheet
 		 *
@@ -731,7 +716,12 @@ final class Functions {
 			wp_enqueue_style( 'affp-rtl', get_theme_file_uri( '/assets/css/rtl.min.css' ), [], '', 'all' );
 		}
 
-		// Google fonts.
+		/**
+		 * Google fonts
+		 *
+		 * Using the fonts from theme files rather than directly from Google.
+		 * Uncomment the Google enqueue if needed.
+		 */
 		wp_enqueue_style( 'affp-google-fonts', get_theme_file_uri( 'https://fonts.googleapis.com/css?family=Nunito+Sans:300,300i,400,400i,700,700i&display=swap' ), [ 'affp-theme' ], '', 'all' );
 
 		// Front page styles.
@@ -757,7 +747,7 @@ final class Functions {
 		// Google fonts.
 		wp_enqueue_style( 'affp-google-fonts', get_theme_file_uri( 'https://fonts.googleapis.com/css?family=Nunito+Sans:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&display=swap' ), [ 'affp-theme' ], '', 'all' );
 
-		wp_enqueue_style( 'affp-theme-admin', get_theme_file_uri( '/assets/css/admin.min.css' ), [], '' );
+		// wp_enqueue_style( 'affp-theme-admin', get_theme_file_uri( '/assets/css/admin.min.css' ), [], '' );
 
 	}
 
