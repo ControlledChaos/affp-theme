@@ -76,23 +76,6 @@
 		}
 	}
 
-	form .input,
-	form input[type="checkbox"],
-	input[type="text"] {
-		background: $dark;
-		-webkit-filter: none !important;
-				filter: none !important;
-
-		&:-webkit-autofill,
-		&:-webkit-autofill:hover,
-		&:-webkit-autofill:focus,
-		&:-webkit-autofill:active  {
-			box-shadow: none !important;
-			-webkit-box-shadow: none !important;
-			-webkit-text-fill-color: $white !important;
-		}
-	}
-
 	.wp-pwd {
 		position: relative;
 

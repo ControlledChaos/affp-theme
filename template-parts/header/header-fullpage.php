@@ -7,6 +7,14 @@
  * @since      1.0.0
  */
 
+/**
+ * Get the name of menus in the Menus UI by location.
+ *
+ * @example wp_nav_menu( 'theme_location' => 'example' );
+ */
+$locations = get_nav_menu_locations();
+$more_menu = wp_get_nav_menu_object( $locations['more'] );
+
 ?>
 <body <?php body_class(); ?>>
 <?php AFFP_Theme\Tags\body_open(); ?>
@@ -40,8 +48,9 @@
 						<a href="#<?php echo strtolower( $menuanchor ); ?>"><?php echo ucwords( $menuanchor ); ?></a>
 					</li>
 					<?php endwhile; ?>
+					<?php if ( has_nav_menu( 'more' ) ) : ?>
 					<li class="more-menu-base-item">
-						<?php _e( 'More', 'affp-theme' ); ?>
+						<?php echo $more_menu->name; ?>
 						<?php
 						wp_nav_menu( [
 							'theme_location' => 'more',
@@ -52,6 +61,7 @@
 						] );
 						?>
 					</li>
+					<?php endif; ?>
 				</ul>
 				<?php endif; ?>
 			</nav>

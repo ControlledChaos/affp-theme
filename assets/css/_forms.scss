@@ -32,6 +32,9 @@ form {
 		&:focus {
 			border-color: rgba($color: $white, $alpha: 0.5);
 		}
+
+		-webkit-filter: none !important;
+		filter: none !important;
 	}
 
 	button:disabled,
@@ -49,6 +52,21 @@ form {
 		text-transform: lowercase;
 		letter-spacing: 0.075em;
 	}
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+	background: $dark;
+	box-shadow: none !important;
+		-webkit-box-shadow: none !important;
+	-webkit-text-fill-color: $white !important;
 }
 
 fieldset {
@@ -147,10 +165,6 @@ select {
 
 option {}
 
-*::-webkit-input-placeholder,
-*:-moz-placeholder,
-*::-moz-placeholder,
-*:-ms-input-placeholder,
 *::-webkit-input-placeholder {
 	color: rgba($color: $white, $alpha: 0.25);
 }
@@ -166,11 +180,8 @@ option {}
 /* Search form */
 .search-form {
 	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
 	display: flex;
-	-ms-flex-wrap: nowrap;
-	    flex-wrap: nowrap;
+	flex-wrap: nowrap;
 	margin-top: 1em;
 }
 

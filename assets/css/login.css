@@ -649,6 +649,8 @@ form button {
   font: inherit;
   background: rgba(255, 255, 255, 0.025);
   border: solid 1px rgba(255, 255, 255, 0.25);
+  -webkit-filter: none !important;
+  filter: none !important;
 }
 
 form input:focus,
@@ -672,6 +674,21 @@ form label {
   font-weight: 400;
   text-transform: lowercase;
   letter-spacing: 0.075em;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+  background: #1c1c24;
+  box-shadow: none !important;
+  -webkit-box-shadow: none !important;
+  -webkit-text-fill-color: #ffffff !important;
 }
 
 fieldset {
@@ -778,6 +795,10 @@ select {
   font: inherit;
 }
 
+*::-webkit-input-placeholder {
+  color: rgba(255, 255, 255, 0.25);
+}
+
 *::-webkit-input-placeholder,
 *:-moz-placeholder,
 *::-moz-placeholder,
@@ -800,7 +821,7 @@ select {
   display: -ms-flexbox;
   display: flex;
   -ms-flex-wrap: nowrap;
-  flex-wrap: nowrap;
+      flex-wrap: nowrap;
   margin-top: 1em;
 }
 
@@ -968,28 +989,6 @@ label.hp-message + input.wpcf7-text {
   -webkit-box-shadow: none;
           box-shadow: none;
   border-color: #ffffff;
-}
-
-.login form .input,
-.login form input[type="checkbox"],
-.login input[type="text"] {
-  background: #1c1c24;
-  -webkit-filter: none !important;
-  filter: none !important;
-}
-
-.login form .input:-webkit-autofill, .login form .input:-webkit-autofill:hover, .login form .input:-webkit-autofill:focus, .login form .input:-webkit-autofill:active,
-.login form input[type="checkbox"]:-webkit-autofill,
-.login form input[type="checkbox"]:-webkit-autofill:hover,
-.login form input[type="checkbox"]:-webkit-autofill:focus,
-.login form input[type="checkbox"]:-webkit-autofill:active,
-.login input[type="text"]:-webkit-autofill,
-.login input[type="text"]:-webkit-autofill:hover,
-.login input[type="text"]:-webkit-autofill:focus,
-.login input[type="text"]:-webkit-autofill:active {
-  box-shadow: none !important;
-  -webkit-box-shadow: none !important;
-  -webkit-text-fill-color: #ffffff !important;
 }
 
 .login .wp-pwd {

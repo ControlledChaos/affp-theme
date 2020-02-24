@@ -23,8 +23,6 @@
 		<?php endif; ?>
 	</header>
 
-	<?php AFFP_Theme\Tags\post_thumbnail(); ?>
-
 	<div class="entry-summary">
 		<?php the_excerpt(); ?>
 	</div>

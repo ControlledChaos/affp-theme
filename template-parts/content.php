@@ -28,8 +28,6 @@
 		<?php endif; ?>
 	</header>
 
-	<?php if ( 'post' === get_post_type() ) { AFFP_Theme\Tags\post_thumbnail(); } ?>
-
 	<div class="entry-content" itemprop="articleBody">
 		<?php
 		the_content( sprintf(
