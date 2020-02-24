@@ -27,7 +27,7 @@ $link_color: $white;
 $link_hover_color: $white;
 $dark_gray: #333333;
 $medium_gray: #555555;
-$light_gray: #888888;
+$light_gray: rgba($color: $white, $alpha: 0.65);
 $pale_gray: #cccccc;
 $error: #dc3232;
 $warning: #ffb900;

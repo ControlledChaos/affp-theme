@@ -667,7 +667,7 @@ ol:not([class]),
 
 /* Admin Bar: submenu */
 #wpadminbar .menupop .ab-sub-wrapper {
-  background: #888888;
+  background: rgba(255, 255, 255, 0.65);
 }
 
 #wpadminbar .quicklinks .menupop ul.ab-sub-secondary,
@@ -729,14 +729,14 @@ ol:not([class]),
 }
 
 #wpadminbar > #wp-toolbar > #wp-admin-bar-top-secondary > #wp-admin-bar-search #adminbarsearch input.adminbar-input:focus {
-  color: #888888;
+  color: rgba(255, 255, 255, 0.65);
   background: #eee;
 }
 
 /* Admin Bar: my account */
 #wpadminbar .quicklinks li#wp-admin-bar-my-account.with-avatar > a img {
   border: none;
-  background-color: #888888;
+  background-color: rgba(255, 255, 255, 0.65);
 }
 
 #wpadminbar #wp-admin-bar-user-info .display-name {
@@ -1179,7 +1179,7 @@ h2 + .search-form {
 .dark-mode textarea:focus,
 .dark-mode select:focus,
 .dark-mode button:focus {
-  border-color: #888888;
+  border-color: rgba(255, 255, 255, 0.65);
 }
 
 .dark-mode button:hover, .dark-mode button:focus,
@@ -1194,7 +1194,7 @@ h2 + .search-form {
 .dark-mode input[type="image"]:hover,
 .dark-mode input[type="image"]:focus {
   background: #555555;
-  border-color: #888888;
+  border-color: rgba(255, 255, 255, 0.65);
 }
 
 div.wpcf7-response-output {
