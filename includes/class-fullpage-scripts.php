@@ -95,13 +95,13 @@ class FullPage_Scripts {
 		// Slick slider arrows.
 		$slider_prev = sprintf(
 			'<button class="slick slick-next tooltip" title="%1s"><span class="screen-reader-text">%2s</span></button>',
-			__( 'Next', 'affp-theme' ),
-			__( 'Next', 'affp-theme' )
+			__( 'Previous', 'affp-theme' ),
+			__( 'Previous', 'affp-theme' )
 		);
 		$slider_next = sprintf(
 			'<button class="slick slick-prev tooltip" title="%1s"><span class="screen-reader-text">%2s</span></button>',
-			__( 'Previous', 'affp-theme' ),
-			__( 'Previous', 'affp-theme' )
+			__( 'Next', 'affp-theme' ),
+			__( 'Next', 'affp-theme' )
 		);
 
 		?>
@@ -141,7 +141,7 @@ class FullPage_Scripts {
 						dots           : false,
 						slidesToScroll : 1,
 						autoplay       : true,
-						autoplaySpeed  : 7200, // Match CSS animation timing on .slick-slide.active, _front-page.scss.
+						autoplaySpeed  : 3000, // Match CSS animation timing on .slick-slide.active, _front-page.scss.
 						infinite       : true,
 						adaptiveHeight : false,
 						speed          : 1800,

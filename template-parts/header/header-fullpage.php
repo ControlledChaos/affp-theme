@@ -45,7 +45,7 @@ $more_menu = wp_get_nav_menu_object( $locations['more'] );
 					$menuanchor = str_replace( ' ', '', $slug );
 					?>
 					<li data-menuanchor="<?php echo strtolower( $menuanchor ); ?>">
-						<a href="#<?php echo strtolower( $menuanchor ); ?>"><?php echo ucwords( $menuanchor ); ?></a>
+						<a href="#<?php echo strtolower( $menuanchor ); ?>"><?php the_sub_field( 'fp_section_menu' ); ?></a>
 					</li>
 					<?php endwhile; ?>
 					<?php if ( has_nav_menu( 'more' ) ) : ?>

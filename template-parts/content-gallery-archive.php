@@ -32,7 +32,7 @@ if ( has_post_thumbnail() ) {
 			<div class="gallery-info">
 				<h2><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h2>
 				<?php the_excerpt(); ?>
-				<p class="gallery-link"><a href="<?php the_permalink(); ?>"><?php _e( 'View Project', 'affp-theme' ); ?> <span class="icon-right"></span></a></p>
+				<p class="gallery-link"><a href="<?php the_permalink(); ?>"><?php _e( 'View Gallery', 'affp-theme' ); ?> <span class="icon-right"></span></a></p>
 			</div>
 		</div>
 	</div>

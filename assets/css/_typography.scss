@@ -228,10 +228,20 @@ $icons: 'Audrey Icons';
 	}
 }
 
-.slick-prev:before {
-	content: '\e801';
+.slick-prev {
+	right: -25px;
+	left: auto;
+
+	&:before {
+		content: '\e802';
+	}
 }
 
-.slick-next:before {
-	content: '\e802';
+.slick-next {
+	left: -25px;
+	right: auto;
+
+	&:before {
+		content: '\e801';
+	}
 }

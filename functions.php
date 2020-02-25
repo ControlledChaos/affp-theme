@@ -1025,11 +1025,11 @@ final class Functions {
 	 * @access public
 	 * @return string Returns the title attribute text.
 	 */
-public function login_url_title() {
+	public function login_url_title() {
 
-	return get_bloginfo( 'name' );
+		return get_bloginfo( 'name' );
 
-}
+	}
 
 }
 

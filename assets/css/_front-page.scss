@@ -4,8 +4,8 @@
 
 @-webkit-keyframes ken-burns {
 	from {
-		-webkit-transform: scale(1.2, 1.2);
-		        transform: scale(1.2, 1.2);
+		-webkit-transform: scale(1.1, 1.1);
+		        transform: scale(1.1, 1.1);
 		-webkit-transform-origin: 50% 0%;
 		        transform-origin: 50% 0%;
 	}
@@ -19,8 +19,8 @@
 
 @keyframes ken-burns {
 	from {
-		-webkit-transform: scale(1.2, 1.2);
-		        transform: scale(1.2, 1.2);
+		-webkit-transform: scale(1.1, 1.1);
+		        transform: scale(1.1, 1.1);
 		-webkit-transform-origin: 50% 0%;
 		        transform-origin: 50% 0%;
 	}
@@ -265,8 +265,8 @@
 				 * Match timing to autoplaySpeed option in intro_slides function,
 				 * class-fullpage-scripts.php
 				 */
-				-webkit-animation: ken-burns 7200ms 1 ease-in-out;
-				animation: ken-burns 7200ms 1 ease-in-out;
+				// -webkit-animation: ken-burns 3000ms 1 ease-in-out;
+				// animation: ken-burns 3000ms 1 ease-in-out;
 			}
 		}
 

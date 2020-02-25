@@ -353,12 +353,22 @@ ol:not([class]),
   text-shadow: none;
 }
 
+.slick-prev {
+  right: -25px;
+  left: auto;
+}
+
 .slick-prev:before {
-  content: '\e801';
+  content: '\e802';
+}
+
+.slick-next {
+  left: -25px;
+  right: auto;
 }
 
 .slick-next:before {
-  content: '\e802';
+  content: '\e801';
 }
 
 /**

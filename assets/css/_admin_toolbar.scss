@@ -1,7 +1,10 @@
 /**
  * Admin toolbar
  */
- #wpadminbar {
+$medium_bg: #42424a;
+$medium_dark_bg: #393941;
+
+#wpadminbar {
 	color: $white;
 	background: $dark;
 }
@@ -23,7 +26,7 @@
 #wpadminbar.nojs .ab-top-menu > li.menupop:hover > .ab-item,
 #wpadminbar .ab-top-menu > li.menupop.hover > .ab-item {
 	color: $white;
-	background: $pale_gray;
+	background: $medium_bg;
 }
 
 #wpadminbar:not(.mobile) > #wp-toolbar li:hover span.ab-label,
@@ -41,12 +44,12 @@ color: $white;
 
 /* Admin Bar: submenu */
 #wpadminbar .menupop .ab-sub-wrapper {
-	background: $light_gray;
+	background: $medium_bg;
 }
 
 #wpadminbar .quicklinks .menupop ul.ab-sub-secondary,
 #wpadminbar .quicklinks .menupop ul.ab-sub-secondary .ab-submenu {
-	background: $pale_gray;
+	background: $medium_bg;
 }
 
 #wpadminbar .ab-submenu .ab-item,
@@ -79,8 +82,8 @@ color: $white;
 #wpadminbar li.hover .ab-item:before,
 #wpadminbar li:hover #adminbarsearch:before,
 #wpadminbar li #adminbarsearch.adminbar-focused:before {
-	background: $pale_gray;
-	color: $white;
+	background: $medium_bg;
+	color: $dark;
 }
 
 #wpadminbar .quicklinks li a:hover .blavatar,

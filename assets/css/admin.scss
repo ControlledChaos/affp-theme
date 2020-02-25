@@ -10,6 +10,11 @@ body {
 	color: $white;
 	font-family: $sans_font;
 	font-size: 1rem;
+
+	&.misp-iframe {
+		// Manage Image Sizes plugin modal.
+		background-color: $dark;
+	}
 }
 
 #wpbody-content {}
@@ -43,6 +48,20 @@ h2,
 h3 {
     font-family: $display_font;
     color: $white;
+}
+
+h2 {
+	font-size: 19px;
+}
+
+h3 {
+	font-size: 17px;
+}
+
+h4,
+h5,
+h6 {
+	font-size: 16px;
 }
 
 .update-core-php h2 {
@@ -141,15 +160,8 @@ div.dashboard-widget-submit input:hover,
 	box-shadow: none;
 }
 
-.comment-ays, .feature-filter,
-.imgedit-group,
-.popular-tags,
-.stuffbox,
-.widgets-holder-wrap,
-.wp-editor-container,
-p.popular-tags,
-table.widefat {
-	background: inherit;
+#menu-management .menu-edit, #menu-settings-column .accordion-container, .comment-ays, .feature-filter, .imgedit-group, .manage-menus, .menu-item-handle, .popular-tags, .stuffbox, .widget-inside, .widget-top, .widgets-holder-wrap, .wp-editor-container, p.popular-tags, table.widefat {
+	background: $dark !important;
 }
 
 .alternate, .striped > tbody > :nth-child(2n+1), ul.striped > :nth-child(2n+1) {
@@ -241,6 +253,12 @@ input[type="text"], input[type="search"], input[type="radio"], input[type="tel"]
     box-shadow: none;
     background-color: #5e5b61;
     color: $white;
+}
+
+.wp-core-ui select {
+    color: $white;
+    border-color: rgba($color: $white, $alpha: 0.35);
+    background: $medium_dark_bg;
 }
 
 input[type="text"]:focus, input[type="search"]:focus, input[type="radio"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="week"]:focus, input[type="password"]:focus, input[type="checkbox"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="email"]:focus, input[type="month"]:focus, input[type="number"]:focus, select:focus, textarea:focus, .media-frame input[type="text"]:focus, .media-frame input[type="password"]:focus, .media-frame input[type="number"]:focus, .media-frame input[type="search"]:focus, .media-frame input[type="email"]:focus, .media-frame input[type="url"]:focus, .media-frame select:focus, .media-frame textarea:focus {
@@ -1447,6 +1465,11 @@ h1.nav-tab-wrapper {
 	border-color: rgba(255,255,255,0.1);
 }
 
+#nav-menu-footer,
+#nav-menu-header {
+	background: $medium_dark_bg;
+}
+
 .menu-item-handle,
 .menu-item-bar .menu-item-handle,
 .widget .widget-top {
@@ -1781,8 +1804,10 @@ div#wp-responsive-toggle a:before {
 	color: $light_gray;
 }
 
+.acf-flexible-content .layout .acf-fc-layout-handle,
 .acf-field p.description {
-	color: #88838c;
+	background: $medium_dark_bg;
+	color: $white;
 }
 
 .acf-fields > .acf-field {
@@ -1961,9 +1986,53 @@ input.acf-is-appended {
 	border-color: rgba(255,255,255,0.3);
 }
 
+.acf-flexible-content .layout {
+    position: relative;
+    margin: 20px 0 0;
+    background: $medium_dark_bg;
+    border: 1px solid rgba($color: $white, $alpha: 0.5);
+}
+
+.CodeMirror {
+	background-color: $medium_bg;
+}
+
+.acf-field-acfe-code-editor > .acf-input > .acf-input-wrap > .CodeMirror-wrap.cm-s-default .CodeMirror-gutters {
+	background-color: $medium_dark_bg;
+	color: $white;
+}
+
 /*--------------------------------------------------------------
 # JQUERY UI
 --------------------------------------------------------------*/
 .iedit.ui-sortable-helper {
 	background: #5e5b61 !important;
+}
+
+// WP Fastest Cache
+.toplevel_page_wpfastestcacheoptions .tabGroup {
+    background: inherit !important;
+    border: none !important;
+}
+
+.toplevel_page_wpfastestcacheoptions .tabGroup > input[type="radio"] + label {
+	background-color: $medium_dark_bg !important;
+	border-color: rgba($color: $white, $alpha: 0.1) !important;
+	color: $white !important;
+}
+
+.toplevel_page_wpfastestcacheoptions .tabGroup div.question,
+.toplevel_page_wpfastestcacheoptions label {
+	color: $white !important;
+}
+
+.toplevel_page_wpfastestcacheoptions .tabGroup > input[type="radio"]:checked + label,
+.toplevel_page_wpfastestcacheoptions .tabGroup > div {
+	background-color: $medium_bg !important;
+	color: $white !important;
+	border-color: rgba($color: $white, $alpha: 0.35) !important;
+}
+
+.toplevel_page_wpfastestcacheoptions .omni_admin_sidebar {
+	display: none !important;
 }

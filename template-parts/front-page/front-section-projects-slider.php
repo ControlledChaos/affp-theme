@@ -10,12 +10,9 @@
 // Query the project post type.
 $args = [
 	'post_type'      => [ 'project' ],
-	'post_status'    => [ 'publish' ],
-	'nopaging'       => true,
 	'posts_per_page' => 6,
-	'paged'          => 1,
-	'order'          => 'ASC',
 	'orderby'        => 'menu_order',
+	'order'          => 'ASC'
 ];
 $query = new WP_Query( $args );
 

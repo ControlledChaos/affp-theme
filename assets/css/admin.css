@@ -350,12 +350,22 @@ ol:not([class]),
   text-shadow: none;
 }
 
+.slick-prev {
+  right: -25px;
+  left: auto;
+}
+
 .slick-prev:before {
-  content: '\e801';
+  content: '\e802';
+}
+
+.slick-next {
+  left: -25px;
+  right: auto;
 }
 
 .slick-next:before {
-  content: '\e802';
+  content: '\e801';
 }
 
 /**
@@ -383,7 +393,7 @@ ol:not([class]),
 #wpadminbar.nojs .ab-top-menu > li.menupop:hover > .ab-item,
 #wpadminbar .ab-top-menu > li.menupop.hover > .ab-item {
   color: #ffffff;
-  background: #cccccc;
+  background: #42424a;
 }
 
 #wpadminbar:not(.mobile) > #wp-toolbar li:hover span.ab-label,
@@ -401,12 +411,12 @@ ol:not([class]),
 
 /* Admin Bar: submenu */
 #wpadminbar .menupop .ab-sub-wrapper {
-  background: rgba(255, 255, 255, 0.65);
+  background: #42424a;
 }
 
 #wpadminbar .quicklinks .menupop ul.ab-sub-secondary,
 #wpadminbar .quicklinks .menupop ul.ab-sub-secondary .ab-submenu {
-  background: #cccccc;
+  background: #42424a;
 }
 
 #wpadminbar .ab-submenu .ab-item,
@@ -439,8 +449,8 @@ ol:not([class]),
 #wpadminbar li.hover .ab-item:before,
 #wpadminbar li:hover #adminbarsearch:before,
 #wpadminbar li #adminbarsearch.adminbar-focused:before {
-  background: #cccccc;
-  color: #ffffff;
+  background: #42424a;
+  color: #1c1c24;
 }
 
 #wpadminbar .quicklinks li a:hover .blavatar,
@@ -492,11 +502,29 @@ body {
   font-size: 1rem;
 }
 
+body.misp-iframe {
+  background-color: #1c1c24;
+}
+
 h1,
 h2,
 h3 {
   font-family: "Montserrat Variable", "Montserrat", -apple-system, BlinkMacSystemFont, "Helvetica Neue", Helvetica, sans-serif;
   color: #ffffff;
+}
+
+h2 {
+  font-size: 19px;
+}
+
+h3 {
+  font-size: 17px;
+}
+
+h4,
+h5,
+h6 {
+  font-size: 16px;
 }
 
 .update-core-php h2 {
@@ -594,15 +622,8 @@ div.dashboard-widget-submit input:hover,
           box-shadow: none;
 }
 
-.comment-ays, .feature-filter,
-.imgedit-group,
-.popular-tags,
-.stuffbox,
-.widgets-holder-wrap,
-.wp-editor-container,
-p.popular-tags,
-table.widefat {
-  background: inherit;
+#menu-management .menu-edit, #menu-settings-column .accordion-container, .comment-ays, .feature-filter, .imgedit-group, .manage-menus, .menu-item-handle, .popular-tags, .stuffbox, .widget-inside, .widget-top, .widgets-holder-wrap, .wp-editor-container, p.popular-tags, table.widefat {
+  background: #1c1c24 !important;
 }
 
 .alternate, .striped > tbody > :nth-child(2n+1), ul.striped > :nth-child(2n+1) {
@@ -695,6 +716,12 @@ input[type="text"], input[type="search"], input[type="radio"], input[type="tel"]
           box-shadow: none;
   background-color: #5e5b61;
   color: #ffffff;
+}
+
+.wp-core-ui select {
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.35);
+  background: #393941;
 }
 
 input[type="text"]:focus, input[type="search"]:focus, input[type="radio"]:focus, input[type="tel"]:focus, input[type="time"]:focus, input[type="url"]:focus, input[type="week"]:focus, input[type="password"]:focus, input[type="checkbox"]:focus, input[type="color"]:focus, input[type="date"]:focus, input[type="datetime"]:focus, input[type="datetime-local"]:focus, input[type="email"]:focus, input[type="month"]:focus, input[type="number"]:focus, select:focus, textarea:focus, .media-frame input[type="text"]:focus, .media-frame input[type="password"]:focus, .media-frame input[type="number"]:focus, .media-frame input[type="search"]:focus, .media-frame input[type="email"]:focus, .media-frame input[type="url"]:focus, .media-frame select:focus, .media-frame textarea:focus {
@@ -1871,6 +1898,11 @@ h1.nav-tab-wrapper {
   border-color: rgba(255, 255, 255, 0.1);
 }
 
+#nav-menu-footer,
+#nav-menu-header {
+  background: #393941;
+}
+
 .menu-item-handle,
 .menu-item-bar .menu-item-handle,
 .widget .widget-top {
@@ -2207,8 +2239,10 @@ div#wp-responsive-toggle a:before {
   color: rgba(255, 255, 255, 0.65);
 }
 
+.acf-flexible-content .layout .acf-fc-layout-handle,
 .acf-field p.description {
-  color: #88838c;
+  background: #393941;
+  color: #ffffff;
 }
 
 .acf-fields > .acf-field {
@@ -2388,9 +2422,52 @@ input.acf-is-appended {
   border-color: rgba(255, 255, 255, 0.3);
 }
 
+.acf-flexible-content .layout {
+  position: relative;
+  margin: 20px 0 0;
+  background: #393941;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+.CodeMirror {
+  background-color: #42424a;
+}
+
+.acf-field-acfe-code-editor > .acf-input > .acf-input-wrap > .CodeMirror-wrap.cm-s-default .CodeMirror-gutters {
+  background-color: #393941;
+  color: #ffffff;
+}
+
 /*--------------------------------------------------------------
 # JQUERY UI
 --------------------------------------------------------------*/
 .iedit.ui-sortable-helper {
   background: #5e5b61 !important;
+}
+
+.toplevel_page_wpfastestcacheoptions .tabGroup {
+  background: inherit !important;
+  border: none !important;
+}
+
+.toplevel_page_wpfastestcacheoptions .tabGroup > input[type="radio"] + label {
+  background-color: #393941 !important;
+  border-color: rgba(255, 255, 255, 0.1) !important;
+  color: #ffffff !important;
+}
+
+.toplevel_page_wpfastestcacheoptions .tabGroup div.question,
+.toplevel_page_wpfastestcacheoptions label {
+  color: #ffffff !important;
+}
+
+.toplevel_page_wpfastestcacheoptions .tabGroup > input[type="radio"]:checked + label,
+.toplevel_page_wpfastestcacheoptions .tabGroup > div {
+  background-color: #42424a !important;
+  color: #ffffff !important;
+  border-color: rgba(255, 255, 255, 0.35) !important;
+}
+
+.toplevel_page_wpfastestcacheoptions .omni_admin_sidebar {
+  display: none !important;
 }

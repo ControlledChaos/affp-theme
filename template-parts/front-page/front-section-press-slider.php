@@ -10,12 +10,9 @@
 // Query the press post type.
 $args = [
 	'post_type'      => [ 'press' ],
-	'post_status'    => [ 'publish' ],
-	'nopaging'       => true,
-	'posts_per_page' => 6,
-	'paged'          => 1,
-	'order'          => 'ASC',
+	'posts_per_page' => 8,
 	'orderby'        => 'menu_order',
+	'order'          => 'ASC'
 ];
 $query = new WP_Query( $args );
 

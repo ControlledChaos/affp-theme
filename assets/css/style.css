@@ -616,12 +616,22 @@ ol:not([class]),
   text-shadow: none;
 }
 
+.slick-prev {
+  right: -25px;
+  left: auto;
+}
+
 .slick-prev:before {
-  content: '\e801';
+  content: '\e802';
+}
+
+.slick-next {
+  left: -25px;
+  right: auto;
 }
 
 .slick-next:before {
-  content: '\e802';
+  content: '\e801';
 }
 
 /**
@@ -649,7 +659,7 @@ ol:not([class]),
 #wpadminbar.nojs .ab-top-menu > li.menupop:hover > .ab-item,
 #wpadminbar .ab-top-menu > li.menupop.hover > .ab-item {
   color: #ffffff;
-  background: #cccccc;
+  background: #42424a;
 }
 
 #wpadminbar:not(.mobile) > #wp-toolbar li:hover span.ab-label,
@@ -667,12 +677,12 @@ ol:not([class]),
 
 /* Admin Bar: submenu */
 #wpadminbar .menupop .ab-sub-wrapper {
-  background: rgba(255, 255, 255, 0.65);
+  background: #42424a;
 }
 
 #wpadminbar .quicklinks .menupop ul.ab-sub-secondary,
 #wpadminbar .quicklinks .menupop ul.ab-sub-secondary .ab-submenu {
-  background: #cccccc;
+  background: #42424a;
 }
 
 #wpadminbar .ab-submenu .ab-item,
@@ -705,8 +715,8 @@ ol:not([class]),
 #wpadminbar li.hover .ab-item:before,
 #wpadminbar li:hover #adminbarsearch:before,
 #wpadminbar li #adminbarsearch.adminbar-focused:before {
-  background: #cccccc;
-  color: #ffffff;
+  background: #42424a;
+  color: #1c1c24;
 }
 
 #wpadminbar .quicklinks li a:hover .blavatar,
@@ -2521,8 +2531,8 @@ body.posts-grid-view.archive .projects-links li.project-page-link {
  */
 @-webkit-keyframes ken-burns {
   from {
-    -webkit-transform: scale(1.2, 1.2);
-    transform: scale(1.2, 1.2);
+    -webkit-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
     -webkit-transform-origin: 50% 0%;
     transform-origin: 50% 0%;
   }
@@ -2536,8 +2546,8 @@ body.posts-grid-view.archive .projects-links li.project-page-link {
 
 @keyframes ken-burns {
   from {
-    -webkit-transform: scale(1.2, 1.2);
-    transform: scale(1.2, 1.2);
+    -webkit-transform: scale(1.1, 1.1);
+    transform: scale(1.1, 1.1);
     -webkit-transform-origin: 50% 0%;
     transform-origin: 50% 0%;
   }
@@ -2759,8 +2769,6 @@ body.posts-grid-view.archive .projects-links li.project-page-link {
 				 * Match timing to autoplaySpeed option in intro_slides function,
 				 * class-fullpage-scripts.php
 				 */
-  -webkit-animation: ken-burns 7200ms 1 ease-in-out;
-  animation: ken-burns 7200ms 1 ease-in-out;
 }
 
 .intro-overlay ul li {
