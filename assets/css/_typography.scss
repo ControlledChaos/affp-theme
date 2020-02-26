@@ -125,6 +125,31 @@ ol:not([class]),
 	padding-left: 1em;
 }
 
+.site-title {
+	font-family: $display_font;
+	font-size: 4.2rem;
+	font-weight: lighter;
+	font-weight: 250;
+	line-height: 1;
+	letter-spacing: 0.2em;
+	text-transform: uppercase;
+
+	& a {
+		font-weight: lighter;
+		font-weight: 250;
+		color: inherit;
+		text-decoration: inherit;
+	}
+}
+
+.site-description {
+	margin: 0;
+	font-family: $display_font;
+	font-size: 2.5rem;
+	letter-spacing: 0.35em;
+	text-transform: lowercase;
+}
+
 /* Text meant only for screen readers. */
 .screen-reader-text {
 	border: 0;

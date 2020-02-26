@@ -17,11 +17,39 @@ body {
 	}
 }
 
+.site-branding {
+	padding-bottom: 30px;
+	border-bottom: solid 1px rgba($color: $white, $alpha: 0.25);
+}
+
+.site-title {
+	margin: 0;
+	font-size: 42px;
+}
+
+.site-description {
+	margin: 0;
+	font-size: 25px;
+}
+
+.afp-dashboard-actions {
+	li {
+		border: solid 1px rgba($color: $white, $alpha: 0.25);
+	}
+}
+
+.afp-dashboard-post-type-actions-icon .dashicons:before,
+.afp-dashboard-content-actions-icon .dashicons:before {
+	color: rgba($color: $white, $alpha: 0.35);
+}
+
 #wpbody-content {}
 
 #wpwrap {}
 
-#wpcontent {}
+#wpcontent {
+	padding-left: 30px;
+}
 
 #wpfooter {}
 

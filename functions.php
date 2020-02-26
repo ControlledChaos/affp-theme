@@ -771,11 +771,16 @@ final class Functions {
 			return;
 		}
 
-		// Get the custom welcome panel option.
+		// Get the options from the companion plugin.
 		$welcome_panel = get_field( 'afp_custom_welcome', 'option' );
+		$admin_header  = get_field( 'afp_use_admin_header', 'option' );
 
 		// Start the style element.
 		$style = '<style>';
+
+		if ( $admin_header ) {
+			$style .= '.wrap { margin-top: 30px; } .welcome-panel { padding: 1em 0 0; }';
+		}
 
 		if ( $welcome_panel ) {
 			$style .= '#dashboard-widgets-wrap { display: none; }';
