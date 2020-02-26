@@ -168,6 +168,7 @@ final class Functions {
 		 * Call late to override plugin styles.
 		 */
 		add_action( 'admin_enqueue_scripts', [ $this, 'admin_styles' ], 99 );
+		add_action( 'admin_head', [ $this, 'admin_inline_styles' ] );
 
 		// Toolbar styles.
 		add_action( 'wp_enqueue_scripts', [ $this, 'toolbar_styles' ] );
@@ -751,6 +752,40 @@ final class Functions {
 		wp_enqueue_style( 'affp-google-fonts', get_theme_file_uri( 'https://fonts.googleapis.com/css?family=Nunito+Sans:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i&display=swap' ), [ 'affp-theme' ], '', 'all' );
 
 		wp_enqueue_style( 'affp-theme-admin', get_theme_file_uri( '/assets/css/admin.min.css' ), [], '' );
+
+	}
+
+	/**
+	 * Inline admin styles
+	 *
+	 * Adds a style element to admin page head element.
+	 *
+	 * @since  1.0.0
+	 * @access public
+	 * @return string Returns the HTML & CSS of the style element.
+	 */
+	public function admin_inline_styles() {
+
+		// Stop if ACF Pro and the companion plugin are not active.
+		if ( ! class_exists( 'acf_pro' ) && ! is_plugin_active( AF_PLUGIN ) ) {
+			return;
+		}
+
+		// Get the custom welcome panel option.
+		$welcome_panel = get_field( 'afp_custom_welcome', 'option' );
+
+		// Start the style element.
+		$style = '<style>';
+
+		if ( $welcome_panel ) {
+			$style .= '#dashboard-widgets-wrap { display: none; }';
+		}
+
+		// End the style element.
+		$style .= '</style>';
+
+		// Print the style element.
+		echo $style;
 
 	}
 
