@@ -562,6 +562,10 @@ h6 {
           box-shadow: none;
 }
 
+label {
+  font-weight: 400;
+}
+
 /*--------------------------------------------------------------
 # LINKS
 --------------------------------------------------------------*/
@@ -730,6 +734,20 @@ input[type="text"]:focus, input[type="search"]:focus, input[type="radio"]:focus,
           box-shadow: none !important;
 }
 
+input[type="checkbox"]:checked:before {
+  height: 1rem;
+  width: 1rem;
+  margin: .5rem 0 0 0rem;
+  font-family: 'Audrey Icons';
+  content: '\e800';
+}
+
+#adminmenu .wp-submenu,
+.folded #adminmenu a.wp-has-current-submenu:focus + .wp-submenu,
+.folded #adminmenu .wp-has-current-submenu .wp-submenu {
+  background-color: #393941 !important;
+}
+
 .form-field input[type="text"], .form-field input[type="password"], .form-field input[type="email"], .form-field input[type="number"], .form-field input[type="search"], .form-field input[type="tel"], .form-field input[type="url"], .form-field textarea {
   border-style: none !important;
   border-width: 0px !important;
@@ -737,7 +755,7 @@ input[type="text"]:focus, input[type="search"]:focus, input[type="radio"]:focus,
 
 .wp-core-ui .button-disabled, .wp-core-ui .button-secondary.disabled, .wp-core-ui .button-secondary:disabled, .wp-core-ui .button-secondary[disabled], .wp-core-ui .button.disabled, .wp-core-ui .button:disabled, .wp-core-ui .button[disabled] {
   background: #393941 !important;
-  color: #5e5b61 !important;
+  color: rgba(255, 255, 255, 0.1) !important;
   text-shadow: none !important;
 }
 
@@ -1054,60 +1072,6 @@ div.mce-panel {
 .view-switch a.current:before,
 .view-switch a:hover:before {
   color: #ffffff;
-}
-
-.attachments-browser .media-toolbar {
-  background-color: #393941;
-}
-
-.media-frame a:focus {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.media-frame.mode-grid .attachment.details:focus, .media-frame.mode-grid .attachment:focus, .media-frame.mode-grid .selected.attachment:focus {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  border: solid 3px #88838c;
-}
-
-.media-frame input[type="text"], .media-frame input[type="password"], .media-frame input[type="number"], .media-frame input[type="search"], .media-frame input[type="email"], .media-frame input[type="url"], .media-frame select, .media-frame textarea {
-  border: none;
-}
-
-.media-modal-content,
-.media-frame-content,
-.attachment-media-view,
-.media-widget-preview.media_audio,
-.media-widget-preview.media_image,
-.edit-attachment-frame .attachment-info {
-  background: #1c1c24;
-}
-
-.edit-attachment-frame .attachment-details {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-}
-
-.media-frame-content {
-  border: none;
-}
-
-.edit-attachment-frame .attachment-info,
-.edit-attachment-frame .attachment-info .details,
-.edit-attachment-frame .attachment-info .settings {
-  -webkit-box-shadow: none;
-          box-shadow: none;
-  border: none;
-}
-
-.attachment-info,
-.edit-attachment-frame .attachment-info .filename,
-.attachment-details .setting span,
-.compat-item label span,
-.media-sidebar .setting,
-.media-modal .compat-attachment-fields > tbody > .acf-field > .acf-label > label {
-  color: #ffffff !important;
 }
 
 #post-search-input {
@@ -1562,6 +1526,62 @@ ul#adminmenu > li.current > a.current:after,
   text-transform: uppercase;
 }
 
+.attachments-browser .media-toolbar {
+  background-color: #42424a;
+  border-top: solid 1px rgba(255, 255, 255, 0.35);
+}
+
+.media-frame a:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.media-frame.mode-grid .attachment.details:focus, .media-frame.mode-grid .attachment:focus, .media-frame.mode-grid .selected.attachment:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: solid 3px #88838c;
+}
+
+.media-frame input[type="text"], .media-frame input[type="password"], .media-frame input[type="number"], .media-frame input[type="search"], .media-frame input[type="email"], .media-frame input[type="url"], .media-frame select, .media-frame textarea {
+  border: none;
+}
+
+.media-modal-content,
+.media-frame-content,
+.attachment-media-view,
+.media-widget-preview.media_audio,
+.media-widget-preview.media_image,
+.edit-attachment-frame .attachment-info {
+  background: #1c1c24;
+}
+
+.edit-attachment-frame .attachment-details {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.media-frame-content {
+  top: 86px;
+  border: none;
+}
+
+.edit-attachment-frame .attachment-info,
+.edit-attachment-frame .attachment-info .details,
+.edit-attachment-frame .attachment-info .settings {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: none;
+}
+
+.attachment-info,
+.edit-attachment-frame .attachment-info .filename,
+.attachment-details .setting span,
+.compat-item label span,
+.media-sidebar .setting,
+.media-modal .compat-attachment-fields > tbody > .acf-field > .acf-label > label {
+  color: #ffffff !important;
+}
+
 .wp-filter {
   background: inherit;
   border: none;
@@ -1643,7 +1663,8 @@ ul#adminmenu > li.current > a.current:after,
           box-shadow: none;
 }
 
-.media-menu, .media-sidebar {
+.media-menu,
+.media-sidebar {
   background: #393941;
   border-color: rgba(255, 255, 255, 0.1);
 }
@@ -1675,6 +1696,46 @@ ul#adminmenu > li.current > a.current:after,
           box-shadow: none;
 }
 
+.media-router .media-menu-item {
+  font-weight: 400;
+  color: #ffffff;
+  background-color: #393941;
+  border: solid 1px rgba(255, 255, 255, 0.35);
+}
+
+.media-router .media-menu-item:not(:last-of-type) {
+  margin-right: 0.35em;
+}
+
+.media-router .media-menu-item:hover, .media-router .media-menu-item:focus {
+  color: #ffffff;
+  background-color: #42424a;
+  border-color: rgba(255, 255, 255, 0.35);
+  border-bottom-color: transparent;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
+
+.media-router .media-menu-item.active {
+  background-color: #42424a;
+  border-bottom-color: transparent;
+}
+
+.media-menu .media-menu-item {
+  font-weight: 400;
+  color: #ffffff;
+}
+
+.media-menu .media-menu-item:focus {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  color: #ffffff;
+}
+
+.wp-core-ui .attachment-preview {
+  background-color: #42424a;
+}
+
 .wp-core-ui .attachment.details .check,
 .wp-core-ui .attachment.selected .check:focus,
 .wp-core-ui .media-frame.mode-grid .attachment.selected .check {
@@ -1687,8 +1748,8 @@ ul#adminmenu > li.current > a.current:after,
 .wp-core-ui .attachment.details:focus,
 .wp-core-ui .attachment:focus,
 .wp-core-ui .selected.attachment:focus {
-  -webkit-box-shadow: inset 0 0 2px 3px #ffffff, inset 0 0 0 7px #70b809 !important;
-          box-shadow: inset 0 0 2px 3px #ffffff, inset 0 0 0 7px #70b809 !important;
+  -webkit-box-shadow: inset 0 0 2px 3px #42424a, inset 0 0 0 7px #70b809 !important;
+          box-shadow: inset 0 0 2px 3px #42424a, inset 0 0 0 7px #70b809 !important;
 }
 
 /*--------------------------------------------------------------
@@ -2239,9 +2300,17 @@ div#wp-responsive-toggle a:before {
   color: rgba(255, 255, 255, 0.65);
 }
 
-.acf-flexible-content .layout .acf-fc-layout-handle,
-.acf-field p.description {
+.acf-flexible-content .layout .acf-fc-layout-handle {
   background: #393941;
+  color: #ffffff;
+}
+
+.acf-field p.descriptio {
+  color: #ffffff;
+}
+
+.form-wrap p,
+p.description {
   color: #ffffff;
 }
 

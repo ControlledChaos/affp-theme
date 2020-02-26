@@ -591,7 +591,7 @@ final class Functions {
 					'thumbs',
 					'close'
 				],
-				spinnerTpl : '<div class="spinner"></div>',
+				// spinnerTpl : '<div class="spinner"></div>',
 				btnTpl : {
 					arrowLeft :
 						'<button data-fancybox-prev class="fancybox-button fancybox-button--arrow_left icon-left tooltip" title="{{PREV}}"></button>',

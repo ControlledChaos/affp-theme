@@ -54,7 +54,7 @@ if ( $query->have_posts() ) : ?>
 				</ul>
 				<h4><?php _e( 'Description', 'affp-theme' ); ?></h4>
 				<div class="project-description"><?php echo $description; ?></div>
-				<div class="project-gallery" id="<?php echo 'gallery-' . get_the_ID(); ?>">
+				<div class="project-gallery project-gallery-hidden" id="<?php echo 'gallery-' . get_the_ID(); ?>">
 					<?php AFFP_Theme\Tags\projects_galleries(); ?>
 				</div>
 			</div>

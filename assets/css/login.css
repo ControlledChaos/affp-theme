@@ -686,6 +686,10 @@ form label {
   letter-spacing: 0.075em;
 }
 
+label {
+  font-weight: 400;
+}
+
 input:-webkit-autofill,
 input:-webkit-autofill:hover,
 input:-webkit-autofill:focus,
@@ -737,6 +741,14 @@ input[type="radio"],
 input[type="checkbox"] {
   width: auto;
   cursor: pointer;
+}
+
+input[type="checkbox"]:checked:before {
+  height: 1rem;
+  width: 1rem;
+  margin: .425rem 0 0 0.035rem;
+  font-family: 'Audrey Icons';
+  content: '\e800';
 }
 
 form button,

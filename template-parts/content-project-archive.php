@@ -105,7 +105,7 @@ $first_url   = $first_image['url'];
 
 				<p class="project-link"><a href="<?php the_permalink(); ?>"><?php _e( 'View Project', 'affp-theme' ); ?> <span class="icon-right"></span></a></p>
 			</div>
-			<div class="project-gallery" id="<?php echo 'gallery-' . get_the_ID(); ?>">
+			<div class="project-gallery-hidden" id="<?php echo 'gallery-' . get_the_ID(); ?>">
 				<?php AFFP_Theme\Tags\projects_galleries(); ?>
 			</div>
 		</div>
