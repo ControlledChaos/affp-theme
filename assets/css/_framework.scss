@@ -126,7 +126,13 @@ hr {
 .wrapper {
     width: 100%;
 	max-width: 1280px;
-    margin: 0 auto;
+	margin: 0 auto;
+
+	&.contact-wrapper {
+		.entry-content {
+			max-width: 1000px;
+		}
+	}
 }
 
 @media screen and (max-width: 1280px) {

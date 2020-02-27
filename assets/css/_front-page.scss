@@ -112,11 +112,14 @@
 			padding-top: 6rem;
 		}
 
-		&.content-section {
+		&.content-section,
+		&.page-section {
 			font-size: 1.7rem;
 			line-height: 1.5;
 
-			.entry-content {}
+			.entry-content {
+				max-width: 1000px !important;
+			}
 		}
 
 		&.has-subsections {
@@ -138,21 +141,12 @@
 			font-weight: 400;
 		}
 
-		.avatar {
-			width: 100%;
-		}
-
 		&.fp-completely,
 		&.section-viewed {
 
 			.entry-content {
 				opacity: 1;
 			}
-		}
-
-		.avatar {
-			margin-top: 6rem;
-			width: 240px;
 		}
 	}
 }
@@ -380,18 +374,7 @@
 
 	.front-page-main {
 
-		.front-page-section {
-
-			.avatar {
-				max-width: 320px;
-				max-width: 14vw;
-				min-width: 240px;
-				margin-top: 2em;
-				-webkit-clip-path: circle();
-						clip-path: circle();
-				 shape-outside: circle();
-			}
-		}
+		.front-page-section {}
 	}
 
 	.intro-header-text {

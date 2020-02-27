@@ -401,13 +401,28 @@ a:hover, a:focus {
   color: #ffffff;
 }
 
+.entry-content a {
+  -webkit-transition: color .15s;
+  transition: color .15s;
+}
+
+.entry-content a:hover, .entry-content a:focus {
+  color: rgba(255, 255, 255, 0.625);
+}
+
 strong,
 b {
   font-weight: 500;
 }
 
-ul:not([class]),
-.sidebar-widgets ul,
+ul {
+  list-style: none;
+}
+
+.entry-content li {
+  margin-top: 0.3em;
+}
+
 ol:not([class]),
 .sidebar-widgets ol {
   padding-left: 1em;
@@ -930,6 +945,10 @@ hr {
   width: 100%;
   max-width: 1280px;
   margin: 0 auto;
+}
+
+.wrapper.contact-wrapper .entry-content {
+  max-width: 1000px;
 }
 
 @media screen and (max-width: 1280px) {
@@ -2646,9 +2665,13 @@ body.posts-grid-view.archive .projects-links li.project-page-link {
   padding-top: 6rem;
 }
 
-.front-page-main .front-page-section.content-section {
+.front-page-main .front-page-section.content-section, .front-page-main .front-page-section.page-section {
   font-size: 1.7rem;
   line-height: 1.5;
+}
+
+.front-page-main .front-page-section.content-section .entry-content, .front-page-main .front-page-section.page-section .entry-content {
+  max-width: 1000px !important;
 }
 
 .front-page-main .front-page-section.has-subsections header {
@@ -2667,17 +2690,8 @@ body.posts-grid-view.archive .projects-links li.project-page-link {
   font-weight: 400;
 }
 
-.front-page-main .front-page-section .avatar {
-  width: 100%;
-}
-
 .front-page-main .front-page-section.fp-completely .entry-content, .front-page-main .front-page-section.section-viewed .entry-content {
   opacity: 1;
-}
-
-.front-page-main .front-page-section .avatar {
-  margin-top: 6rem;
-  width: 240px;
 }
 
 .fp-responsive .front-page-main .front-page-section:not(.splash) {
@@ -2899,15 +2913,6 @@ body.posts-grid-view.archive .projects-links li.project-page-link {
 }
 
 @media screen and (min-width: 769px) {
-  .front-page-main .front-page-section .avatar {
-    max-width: 320px;
-    max-width: 14vw;
-    min-width: 240px;
-    margin-top: 2em;
-    -webkit-clip-path: circle();
-    clip-path: circle();
-    shape-outside: circle();
-  }
   .intro-header-text {
     padding: 0 8vw;
   }

@@ -135,13 +135,28 @@ a:hover, a:focus {
   color: #ffffff;
 }
 
+.entry-content a {
+  -webkit-transition: color .15s;
+  transition: color .15s;
+}
+
+.entry-content a:hover, .entry-content a:focus {
+  color: rgba(255, 255, 255, 0.625);
+}
+
 strong,
 b {
   font-weight: 500;
 }
 
-ul:not([class]),
-.sidebar-widgets ul,
+ul {
+  list-style: none;
+}
+
+.entry-content li {
+  margin-top: 0.3em;
+}
+
 ol:not([class]),
 .sidebar-widgets ol {
   padding-left: 1em;

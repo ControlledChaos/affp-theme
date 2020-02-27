@@ -113,13 +113,28 @@ a {
 	}
 }
 
+.entry-content a {
+	transition: color .15s;
+
+	&:hover,
+	&:focus {
+		color: rgba($color: $white, $alpha: 0.625);
+	}
+}
+
 strong,
 b {
 	font-weight: 500;
 }
 
-ul:not([class]),
-.sidebar-widgets ul,
+ul {
+	list-style: none;
+}
+
+.entry-content li {
+	margin-top: 0.3em;
+}
+
 ol:not([class]),
 .sidebar-widgets ol {
 	padding-left: 1em;
