@@ -203,7 +203,7 @@ class FullPage_Fields {
 										'name'              => 'fp_section_title',
 										'type'              => 'text',
 										'instructions'      => __( '', 'affp-theme' ),
-										'required'          => 1,
+										'required'          => 0,
 										'conditional_logic' => 0,
 										'wrapper'           => [
 											'width' => '',
@@ -373,7 +373,7 @@ class FullPage_Fields {
 										'name'              => 'fp_section_title',
 										'type'              => 'text',
 										'instructions'      => __( '', 'affp-theme' ),
-										'required'          => 1,
+										'required'          => 0,
 										'conditional_logic' => 0,
 										'wrapper'           => [
 											'width' => '',
@@ -427,7 +427,7 @@ class FullPage_Fields {
 									],
 									[
 										'key'               => 'field_5e45a2cf1ef62',
-										'label'             => __( 'Presentaion', 'affp-theme' ),
+										'label'             => __( 'Presentation', 'affp-theme' ),
 										'name'              => 'fp_section_projects_display',
 										'type'              => 'button_group',
 										'instructions'      => __( '', 'affp-theme' ),
@@ -591,7 +591,7 @@ class FullPage_Fields {
 										'name'              => 'fp_section_title',
 										'type'              => 'text',
 										'instructions'      => __( '', 'affp-theme' ),
-										'required'          => 1,
+										'required'          => 0,
 										'conditional_logic' => 0,
 										'wrapper'           => [
 											'width' => '',
@@ -645,7 +645,7 @@ class FullPage_Fields {
 									],
 									[
 										'key'               => 'field_5e45a988a76b9',
-										'label'             => __( 'Presentaion', 'affp-theme' ),
+										'label'             => __( 'Presentation', 'affp-theme' ),
 										'name'              => 'fp_section_press_display',
 										'type'              => 'button_group',
 										'instructions'      => __( '', 'affp-theme' ),
@@ -807,7 +807,7 @@ class FullPage_Fields {
 										'name'              => 'fp_section_title',
 										'type'              => 'text',
 										'instructions'      => __( '', 'affp-theme' ),
-										'required'          => 1,
+										'required'          => 0,
 										'conditional_logic' => 0,
 										'wrapper'           => [
 											'width' => '',
